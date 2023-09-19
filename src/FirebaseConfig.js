@@ -1,7 +1,7 @@
-// Import the required methods/functions and Firebase
+// Importing the required methods/functions and Firebase
 import { initializeApp } from "firebase/app";
 
-// Your config object
+// The  config object
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
   authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
@@ -12,7 +12,6 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
+// Initializing  Firebase
 const app = initializeApp(firebaseConfig);
-
 export default app;

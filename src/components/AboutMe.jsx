@@ -30,8 +30,9 @@ const AboutMe = () => {
           <div className="about-me" style={{ textAlign: "left" }}>
             <p style={{ margin: "0", padding: "0" }}>
               I like to use code to solve real-life problems. I have a
-              Bachelor's degree in Geological Engineering and I am currently
-              getting my Master's degree in Data Science and Analytics.
+              Bachelor&comma;s degree in Geological Engineering and I am
+              currently getting my Master&comma;s degree in Data Science and
+              Analytics.
             </p>
           </div>
           <div className="social-and-resume mt-4" style={{ textAlign: "left" }}>
@@ -84,5 +85,4 @@ const AboutMe = () => {
     </Container>
   );
 };
-
 export default AboutMe;
