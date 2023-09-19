@@ -3,7 +3,20 @@
 ## Description
 
 A portfolio website that showcases my skills, resume, and additional information
-about myself. Built with React, Bootstrap, and Firebase, and bundled using Vite.
+about myself. Built with React, Bootstrap, and Firebase, and bundled using
+Vite.The website is hosted on Google Firebase, a platform known for its
+reliability and scalability. Utilized GitHub Actions for Continuous Integration
+and Continuous Deployment, automating the testing and deployment process.
+
+### Challenges
+
+One of the main challenges was optimizing the site for both speed and
+responsiveness without sacrificing aesthetic appeal.
+
+### Learning Outcomes
+
+This project enhanced my understanding of modern web development tools and
+workflows, including CI/CD pipelines
 
 ## Getting Started
 
