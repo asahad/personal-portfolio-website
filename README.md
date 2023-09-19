@@ -15,27 +15,27 @@ about myself. Built with React, Bootstrap, and Firebase, and bundled using Vite.
 
 ### Installing and Executing the Project
 
-1. Clone the Repository: Open your terminal and run: git clone
-   https://github.com/your-username/personal-portfolio-website.git
+- Clone the Repository: Open your terminal and run:
+  `git clone https://github.com/your-username/personal-portfolio-website.git`
 
-2. Navigate to the Project Directory: cd personal-portfolio-website
+- Navigate to the Project Directory: `cd personal-portfolio-website`
 
-3. Install Dependencies: Since the project uses Bootstrap, Firebase, and React,
-   all dependencies are listed in the package.json file. Install them with: npm
-   install
+- Install Dependencies: Since the project uses Bootstrap, Firebase, and React,
+  all dependencies are listed in the package.json file. Install them with:
+  `npm install`
 
 ### Executing program
 
-- Development Server: To start the development server provided by Vite, run: npm
-  run dev
+- Development Server: To start the development server provided by Vite, run:
+  `npm run dev`
 
-- Build for Production:To create a production-ready build, execute: npm run
-  build
+- Build for Production:To create a production-ready build, execute:
+  `npm run build`
 
-  - Preview Production Build: To preview the production build locally, use: npm
-    run preview
+  - Preview Production Build: To preview the production build locally, use:
+    `npm run preview`
 
-  - Linting: To run ESLint on the codebase, use: npm run lint
+  - Linting: To run ESLint on the codebase, use: `npm run lint`
 
 ## Troubleshooting & Help
 
@@ -44,8 +44,8 @@ via email.
 
 ## Authors
 
-Alhassan Sahad Dominique Pizzie  
-[Email](alhassansahad24@gmail.com)
+Alhassan Sahad  
+[Email](mailto:alhassansahad24@gmail.com)
 
 ## Version History
 
