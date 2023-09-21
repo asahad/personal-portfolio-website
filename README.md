@@ -29,7 +29,7 @@ workflows, including CI/CD pipelines
 ### Installing and Executing the Project
 
 - Clone the Repository: Open your terminal and run:
-  `git clone https://github.com/your-username/personal-portfolio-website.git`
+  `git clone https://github.com/asahad/personal-portfolio-website.git`
 
 - Navigate to the Project Directory: `cd personal-portfolio-website`
 
