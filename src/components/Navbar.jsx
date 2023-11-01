@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-
 const MyNavbar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="sticky-top">
@@ -26,5 +25,4 @@ const MyNavbar = () => {
     </Navbar>
   );
 };
-
 export default MyNavbar;

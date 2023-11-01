@@ -20,7 +20,7 @@ import manixTintingImg from "../img/manixTintingWebsiteImg.jpg";
 import techTempleImg from "../img/techTempleImg.jpg";
 
 const ProjectsSection = () => {
-  const [showWarningModal, setShowWarningModal] = React.useState(false);
+  const [showWarningModal, setShowWarningModal] = useState(false);
 
   const openModal = () => {
     setShowWarningModal(true);
