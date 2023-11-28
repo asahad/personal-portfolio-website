@@ -9,8 +9,7 @@ const Footer = () => {
         <Row>
           <Col className="text-center">
             <p style={{ fontSize: "22px" }}>
-              Copyright &copy; {currentYear} All Rights Reserved,Designed by
-              Alhassan.
+              Copyright &copy; {currentYear} Alhassan Sahad
             </p>
           </Col>
         </Row>

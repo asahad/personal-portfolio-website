@@ -29,9 +29,9 @@ const AboutMe = () => {
           <h1 className="mb-5">About Me</h1>
           <div className="about-me" style={{ textAlign: "left" }}>
             <p style={{ margin: "0", padding: "0" }}>
-              I like to use code to solve real-life problems. I have a Bachelor
-              degree in Geological Engineering and I am currently getting my
-              Masters degree in Data Science and Analytics.I will be graduating in May 2024.
+              I like to use code to solve real-life problems.I am masters
+              student in Data Science and Analytics at the University of
+              Missouri and I will be graduating in May 2024.
             </p>
           </div>
           <div className="social-and-resume mt-4" style={{ textAlign: "left" }}>
