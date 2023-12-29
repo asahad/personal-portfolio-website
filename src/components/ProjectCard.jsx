@@ -1,43 +1,23 @@
-import { Container, Row, Col } from "react-bootstrap";
-import ProjectCard from "./ProjectCard"; // Make sure this path is correct
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
 
-// Importing the project images
-import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
-
-const ProjectsSection = () => {
-  const projects = [
-    {
-      imageUrl: nucampsiteWebsiteImg,
-      title: "Nucamp Website",
-      description:
-        "Full Stack single page application website for a fictitional camping site. This website provides user authentication to interact with the Directory portion of the site, users are able to add comments and hit the like button to the campsites after logging in or creating an account.",
-      projectUrl: "https://react-deploy-test-383704.web.app/",
-      projectGitHubUrl: "https://github.com/asahad/personal-portfolio-website",
-    },
-    // ... include other projects here ...
-  ];
-
+const ProjectCard = ({ imageUrl, title, description, projectUrl, projectGitHubUrl }) => {
   return (
-    <Container className="pt-5 pb-5">
-      <h1 style={{ fontFamily: "Rubik", fontWeight: "900", lineHeight: "1em" }}>
-        My Personal Projects
-      </h1>
-      <hr />
-      <Row>
-        {projects.map((project, index) => (
-          <Col key={index} xs={12} md={6} lg={4} className="pb-3">
-            <ProjectCard
-              imageUrl={project.imageUrl}
-              title={project.title}
-              description={project.description}
-              projectUrl={project.projectUrl}
-              projectGitHubUrl={project.projectGitHubUrl}
-            />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <Card className="mb-3">
+      <Card.Img variant="top" src={imageUrl} alt={title} />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <Button variant="primary" href={projectUrl} target="_blank" rel="noopener noreferrer">
+          View Project
+        </Button>
+        {' '}
+        <Button variant="secondary" href={projectGitHubUrl} target="_blank" rel="noopener noreferrer">
+          GitHub Repo
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 
-export default ProjectsSection;
+export default ProjectCard;
