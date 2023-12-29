@@ -6,7 +6,7 @@ const ProjectCard = ({ imageUrl, title, description, projectUrl, projectGitHubUr
     <Card className="mb-3">
       <Card.Img variant="top" src={imageUrl} alt={title} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title style={{fontSize: "30px"}}>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
         <Button variant="primary" href={projectUrl} target="_blank" rel="noopener noreferrer">
           View Project

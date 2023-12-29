@@ -8,7 +8,7 @@ const ProjectsSection = () => {
   const projects = [
     {
       imageUrl: nucampsiteWebsiteImg,
-      title: "Nucamp Website",
+      title: "NucampSite",
       description:
         "Full Stack single page application website for a fictitional camping site. This website provides user authentication to interact with the Directory portion of the site, users are able to add comments and hit the like button to the campsites after logging in or creating an account.",
       projectUrl: "https://react-deploy-test-383704.web.app/",
