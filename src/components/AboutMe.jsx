@@ -26,7 +26,7 @@ const AboutMe = () => {
           />
         </Col>
         <Col xs={12} lg={4} className="text-left">
-          <h1 className="mb-5">About Me</h1>
+          <h1 className="mb-5" style={{ fontFamily: 'Rubik', fontWeight: '900', lineHeight: '1em' }}>About Me</h1>
           <div className="about-me" style={{ textAlign: "left" }}>
             <p style={{ margin: "0", padding: "0" }}>
               I like to use code to solve real-life problems.I am masters

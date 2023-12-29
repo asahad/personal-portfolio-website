@@ -1,5 +1,5 @@
 import { Card, Container } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 
 const Cover = () => {

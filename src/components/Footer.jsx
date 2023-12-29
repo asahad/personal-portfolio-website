@@ -1,10 +1,9 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer style={{ backgroundColor: "#F2F2F2", padding: "20px 0" }}>
+    <footer style={{ backgroundColor: "#333", padding: "20px 0", color: "white" }}>
       <Container>
         <Row>
           <Col className="text-center">
@@ -17,4 +16,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

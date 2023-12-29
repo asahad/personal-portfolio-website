@@ -15,7 +15,16 @@ const ContactForm = () => {
           <Col md={6}>
             {" "}
             {/* Set the horizontal length of the form */}
-            <h1 className="text-center">Contact</h1>
+            <h1
+              className="text-center"
+              style={{
+                fontFamily: "Rubik",
+                fontWeight: "900",
+                lineHeight: "1em",
+              }}
+            >
+              Contact Me
+            </h1>
             <Form onSubmit={handleSubmit} className="m-2">
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
