@@ -21,12 +21,13 @@ const ProjectCard = ({
       <Card.Body style={{ overflowY: "auto" }}>
         {" "}
         {/* Add scroll for overflow */}
-        <Card.Title style={{ fontSize: "30px" }}>{title}</Card.Title>
+        <Card.Title style={{ fontSize: "30px"}}>{title}</Card.Title>
         <Card.Text
           style={{
             maxHeight: "100px",
             overflow: "hidden",
             textOverflow: "ellipsis",
+            textAlign: "justify"
           }}
         >
           {description}
