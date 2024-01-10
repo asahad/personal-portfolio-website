@@ -40,7 +40,7 @@ const SkillsSection = () => {
       <hr />
       <Row>
         {skills.map((skill, index) => (
-          <Col key={index} xs={12} sm={6} md={4} lg={3} xl={2}>
+          <Col key={index} xs={6} sm={6} md={4} lg={3} xl={2}>
             <SkillCard image={skill.image} title={skill.title} />
           </Col>
         ))}

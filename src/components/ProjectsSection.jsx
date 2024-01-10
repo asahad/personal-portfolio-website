@@ -4,8 +4,26 @@ import ProjectCard from "./ProjectCard"; // Make sure this path is correct
 // Importing the project images
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
 import TrackMyHuntImage from "../img/trackmyhunt.png";
+import wineHubSiteImage from "../img/winehub.jpg";
+
 const ProjectsSection = () => {
   const projects = [
+    {
+      imageUrl: wineHubSiteImage,
+      title: "WineHub",
+      description:
+        "This is a full-stack e-commerce web application, designed for online retail businesses. The client-side is built using React, ensuring a responsive and interactive user interface, while Redux RTK Query is utilized for state management. The backend is built by by Node.js with the Express framework.MongoDB, coupled with the Mongoose ODM, is used for database implementation, ensuring seamless data handling and storage.",
+      projectUrl: "https://winehubsite.onrender.com/",
+      projectGitHubUrl: "https://github.com/asahad/winehubsite",
+    },
+    {
+      imageUrl: TrackMyHuntImage,
+      title: "TrackMyHunt",
+      description:
+        "A job Application tracker for keeping records of jobs during job hunting.The front end was built using reac t and redux for state management.Built on top of Express JS for backend implementation.",
+      projectUrl: "",
+      projectGitHubUrl: "https://github.com/asahad/TrackMyHunt",
+    },
     {
       imageUrl: nucampsiteWebsiteImg,
       title: "NucampSite",
@@ -14,14 +32,7 @@ const ProjectsSection = () => {
       projectUrl: "https://react-deploy-test-383704.web.app/",
       projectGitHubUrl: "https://github.com/asahad/NucampSite",
     },
-    {
-      imageUrl: TrackMyHuntImage,
-      title: "TrackMyHunt",
-      description:
-        "A job Application tracker for keeping records of jobs during job hunting.The front end was built using reac t and redux for state management.Built on top of Express JS for backend implementation",
-      projectUrl: "",
-      projectGitHubUrl: "https://github.com/asahad/TrackMyHunt",
-    },
+    
 
     // ... include other projects here ...
   ];

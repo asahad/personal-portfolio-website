@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 const ProjectCard = ({
@@ -9,7 +8,7 @@ const ProjectCard = ({
   projectGitHubUrl,
 }) => {
   return (
-    <Card className="mb-3" style={{ height: "500px" }}>
+    <Card className="mb-3" style={{ minHeight: "500px" }}>
       {" "}
       {/* Set a specific height */}
       <Card.Img
@@ -21,13 +20,14 @@ const ProjectCard = ({
       <Card.Body style={{ overflowY: "auto" }}>
         {" "}
         {/* Add scroll for overflow */}
-        <Card.Title style={{ fontSize: "30px"}}>{title}</Card.Title>
+        <Card.Title style={{ fontSize: "30px" }}>{title}</Card.Title>
         <Card.Text
           style={{
-            maxHeight: "100px",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            textAlign: "justify"
+            // maxHeight: "100px",
+            // overflow: "hidden",
+            // textOverflow: "ellipsis",
+            minHeight: "215px",
+            textAlign: "justify",
           }}
         >
           {description}
