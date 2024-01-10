@@ -1,11 +1,13 @@
 import mailjetPackage from "node-mailjet";
 import dotenv from "dotenv";
 dotenv.config();
-// Configure Mailjet Mail
-const api = "9590594c8522236fce667a79e398e751";
-const api_secret = "18e78b93ce1a83bcbcab9242c36c739e";
 
-const mailjetClient = mailjetPackage.connect(api, api_secret);
+// Configure Mailjet Mail
+const mailjetClient = mailjetPackage.connect(
+  process.env.MAILJET_API_KEY,
+  process.env.MAILJET_API_SECRET_KEY
+);
+
 
 const sendFormSubmissionEmail = (userEmail, userName) => {
   const emailData = {
