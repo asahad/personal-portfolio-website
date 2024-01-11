@@ -7,12 +7,16 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - run: npm install
-    - run: npm run build
-    - uses: FirebaseExtended/action-hosting-deploy@v0
-      with:
-        repoToken: ${{ secrets.GITHUB_TOKEN }}
-        firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PERSONAL_PORTFOLIO_WEBSI_47FB6 }}
-        channelId: live
-        projectId: personal-portfolio-websi-47fb6
+      - uses: actions/checkout@v3
+      - run: npm install
+      - run: npm run build
+      - name: Decode Firebase Service Account
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" | base64 --decode > decoded-firebase-key.json
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "./decoded-firebase-key.json"
+          channelId: live
+          projectId: personal-portfolio-websi-47fb6
