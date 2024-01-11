@@ -6,7 +6,7 @@ A portfolio website that showcases my skills, resume, and additional information
 about myself. Built with React, Bootstrap, and Firebase, and bundled using
 Vite.The website is hosted on Google Firebase, a platform known for its
 reliability and scalability. Utilized GitHub Actions for Continuous Integration
-and Continuous Deployment, automating the testing and deployment process.The backend of the project was built using node.js runtime through express library
+and Continuous Deployment, automating the testing and deployment process.
 
 ### Challenges
 
