@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       title: "TrackMyHunt",
       description:
         "A job Application tracker for keeping records of jobs during job hunting.The front end was built using reac t and redux for state management.Built on top of Express JS for backend implementation.",
-      projectUrl: "",
+      projectUrl: "https://trackmyhunt.onrender.com",
       projectGitHubUrl: "https://github.com/asahad/TrackMyHunt",
     },
     {
