@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,6 +32,12 @@ const ContactForm = () => {
 
       if (response.ok) {
         toast.success("Form submitted successfully!");
+        // Clear form here
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
       } else {
         toast.error("Failed to submit form.");
       }
@@ -43,7 +49,7 @@ const ContactForm = () => {
   return (
     <div className="contact-section-background" id="contact">
       <ToastContainer />
-      <Container className="pt-5 ">
+      <Container className="pt-5">
         <Row className="justify-content-center">
           <Col md={6}>
             <h1
@@ -63,6 +69,7 @@ const ContactForm = () => {
                   type="text"
                   placeholder="Enter your name"
                   onChange={handleInputChange}
+                  value={formData.name}
                 />
               </Form.Group>
 
@@ -72,6 +79,7 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Enter your email"
                   onChange={handleInputChange}
+                  value={formData.email}
                 />
               </Form.Group>
 
@@ -82,6 +90,7 @@ const ContactForm = () => {
                   rows={3}
                   placeholder="Your message..."
                   onChange={handleInputChange}
+                  value={formData.message}
                 />
               </Form.Group>
 
