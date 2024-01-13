@@ -20,7 +20,7 @@ const ContactForm = () => {
 
     try {
       const response = await fetch(
-        "https://personal-portfolio-backend-s3en.onrender.com",
+        "https://personal-portfolio-backend-s3en.onrender.com/api/form-submission",
         {
           method: "POST",
           headers: {
