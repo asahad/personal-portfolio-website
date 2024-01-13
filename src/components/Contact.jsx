@@ -1,20 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
+    try {
+      const response = await fetch(
+        "https://personal-portfolio-backend-s3en.onrender.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        toast.success("Form submitted successfully!");
+      } else {
+        toast.error("Failed to submit form.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while submitting the form.");
+    }
   };
 
   return (
     <div className="contact-section-background" id="contact">
+      <ToastContainer />
       <Container className="pt-5 ">
         <Row className="justify-content-center">
           <Col md={6}>
-            {" "}
-            {/* Set the horizontal length of the form */}
             <h1
               className="text-center"
               style={{
@@ -26,28 +57,35 @@ const ContactForm = () => {
               Contact Me
             </h1>
             <Form onSubmit={handleSubmit} className="m-2">
-              <Form.Group className="mb-3" controlId="formName">
+              <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your name"
+                  onChange={handleInputChange}
+                />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formEmail">
+              <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" />
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your email"
+                  onChange={handleInputChange}
+                />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formMessage">
+              <Form.Group className="mb-3" controlId="message">
                 <Form.Label>Message</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
                   placeholder="Your message..."
+                  onChange={handleInputChange}
                 />
               </Form.Group>
 
               <div className="text-center">
-                {" "}
-                {/* Center the button */}
                 <Button variant="primary" type="submit">
                   Submit
                 </Button>
