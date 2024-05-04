@@ -26,11 +26,20 @@ const AboutMe = () => {
           />
         </Col>
         <Col xs={12} lg={4} className="text-left">
-          <h1 className="mb-5" style={{ fontFamily: 'Rubik', fontWeight: '900', lineHeight: '1em' }}>About Me</h1>
+          <h1
+            className="mb-5"
+            style={{
+              fontFamily: "Rubik",
+              fontWeight: "900",
+              lineHeight: "1em",
+            }}
+          >
+            About Me
+          </h1>
           <div className="about-me" style={{ textAlign: "left" }}>
             <p style={{ margin: "0", padding: "0", fontSize: "20px" }}>
-              I like to use code to solve real-life problems.I am currently a masters
-              student in Data Science and Analytics at the University of
+              I like to use code to solve real-life problems.I am currently a
+              masters student in Data Science and Analytics at the University of
               Missouri and I will be graduating in May 2024.
             </p>
           </div>
@@ -68,7 +77,7 @@ const AboutMe = () => {
               variant="primary"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1pArVwfg0V3A8p0fTRFWdlaqfK3zCnRL6/view?usp=drive_link",
+                  "https://drive.google.com/file/d/1anLxrDzrR9vTmD64fLP1FOKjupYqyL75/view?usp=drive_link",
                   "_blank"
                 )
               }
