@@ -5,10 +5,29 @@ import ProjectCard from "./ProjectCard"; // Make sure this path is correct
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
 import TrackMyHuntImage from "../img/trackmyhunt.png";
 import wineHubSiteImage from "../img/winehub.jpg";
-import UsgsImage from "../img/usgsImage.png"
+import UsgsImage from "../img/usgsImage.png";
+import ChicagoCrime from "../img/chicagoCrime.png";
 
 const ProjectsSection = () => {
   const projects = [
+    {
+      imageUrl: UsgsImage,
+      title: "Streamflow Monitor",
+      description:
+        "Streamflow Monitor is a web application designed for the monitoring and visualization of streamflow data across various gauge stations within the United States, with a specific focus on the state of Missouri",
+      projectUrl: "https://streamflow-monitor.onrender.com/",
+      projectGitHubUrl: "https://github.com/asahad/streamflow-monitor",
+    },
+    {
+      imageUrl: ChicagoCrime,
+      title: "ETL and Analytics on Chicago Crime Data",
+      description:
+        "This project delves into the Database Design, ETL (Extract, Transform, Load), and Analytics phases using a comprehensive Chicago crime data set spanning multiple years. the first focuses on designing and creating a structured database, and the second leverages this database to conduct in-depth analytics and derive actionable insights.",
+      // projectUrl: "https://streamflow-monitor.onrender.com/",
+      projectGitHubUrl:
+        "https://github.com/asahad/ETL-and-Analytics-on-Chicago-Crime-Data",
+    },
+
     {
       imageUrl: wineHubSiteImage,
       title: "WineHub",
@@ -32,15 +51,6 @@ const ProjectsSection = () => {
         "Full Stack single page application website for a fictitional camping site. This website provides user authentication to interact with the Directory portion of the site, users are able to add comments and hit the like button to the campsites after logging in or creating an account.",
       projectUrl: "https://react-deploy-test-383704.web.app/",
       projectGitHubUrl: "https://github.com/asahad/NucampSite",
-    },
-
-    {
-      imageUrl: UsgsImage,
-      title: "Streamflow Monitor",
-      description:
-        "Streamflow Monitor is a web application designed for the monitoring and visualization of streamflow data across various gauge stations within the United States, with a specific focus on the state of Missouri",
-      projectUrl: "https://streamflow-monitor.onrender.com/",
-      projectGitHubUrl: "https://github.com/asahad/streamflow-monitor",
     },
 
     // ... include other projects here ...
