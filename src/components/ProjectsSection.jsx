@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard"; // Make sure this path is correct
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
 import TrackMyHuntImage from "../img/trackmyhunt.png";
 import wineHubSiteImage from "../img/winehub.jpg";
-import UsgsImage from "../img/UsgsImage.png"
+import UsgsImage from "../img/usgsImage.png"
 
 const ProjectsSection = () => {
   const projects = [
