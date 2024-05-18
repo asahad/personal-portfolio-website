@@ -5,6 +5,7 @@ import ProjectCard from "./ProjectCard"; // Make sure this path is correct
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
 import TrackMyHuntImage from "../img/trackmyhunt.png";
 import wineHubSiteImage from "../img/winehub.jpg";
+import UsgsImage from "../img/UsgsImage.png"
 
 const ProjectsSection = () => {
   const projects = [
@@ -32,7 +33,15 @@ const ProjectsSection = () => {
       projectUrl: "https://react-deploy-test-383704.web.app/",
       projectGitHubUrl: "https://github.com/asahad/NucampSite",
     },
-    
+
+    {
+      imageUrl: UsgsImage,
+      title: "Streamflow Monitor",
+      description:
+        "Streamflow Monitor is a web application designed for the monitoring and visualization of streamflow data across various gauge stations within the United States, with a specific focus on the state of Missouri",
+      projectUrl: "https://streamflow-monitor.onrender.com/",
+      projectGitHubUrl: "https://github.com/asahad/streamflow-monitor",
+    },
 
     // ... include other projects here ...
   ];
