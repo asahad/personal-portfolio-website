@@ -5,95 +5,126 @@ import { AiOutlineMail } from "react-icons/ai";
 
 const AboutMe = () => {
   return (
-    <Container fluid className="py-5">
-      <Row className="align-items-center">
-        {/* ===== Profile Image ===== */}
-        <Col
-          xs={12}
-          lg={5}
-          className="text-center mb-5 mb-lg-0"
-        >
-          <img
-            src={profilePic}
-            alt="Alhassan Sahad"
-            style={{
-              width: "100%",
-              maxWidth: "380px",
-              borderRadius: "50%",
-              objectFit: "cover",
-            }}
-          />
-        </Col>
-
-        {/* ===== About Text ===== */}
-        <Col xs={12} lg={6}>
-          <h1
-            className="mb-4"
-            style={{
-              fontFamily: "Rubik",
-              fontWeight: "900",
-              lineHeight: "1.1",
-            }}
+    <section
+      style={{
+        background: "#f9fafb",
+        padding: "100px 0",
+      }}
+    >
+      <Container>
+        <Row className="align-items-center">
+          {/* Profile Image */}
+          <Col
+            xs={12}
+            md={5}
+            className="text-center mb-5 mb-md-0"
           >
-            About Me
-          </h1>
+            <img
+              src={profilePic}
+              alt="Alhassan Sahad"
+              style={{
+                width: "260px",
+                height: "260px",
+                objectFit: "cover",
+                borderRadius: "50%",
+              }}
+            />
+          </Col>
 
-          <p style={{ fontSize: "18px", lineHeight: "1.7" }}>
-            I’m a Data Scientist with a strong foundation in statistics,
-            machine learning, and applied AI. I enjoy building systems that
-            transform raw data into insights that drive real-world decisions.
-          </p>
-
-          <p style={{ fontSize: "18px", lineHeight: "1.7" }}>
-            My interests span end-to-end machine learning, experimentation,
-            and modern AI workflows including large language models (LLMs)
-            and retrieval-augmented generation (RAG). I value clarity,
-            reproducibility, and impact in everything I build.
-          </p>
-
-          {/* ===== Social Links + Resume ===== */}
-          <div className="d-flex align-items-center mt-4 flex-wrap gap-3">
-            <a
-              href="https://www.linkedin.com/in/alhassan-sahad-735a13160/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
+          {/* Text Content */}
+          <Col xs={12} md={7}>
+            <h1
+              style={{
+                fontWeight: "800",
+                fontSize: "2.6rem",
+                marginBottom: "10px",
+              }}
             >
-              <BsLinkedin style={{ fontSize: "34px", color: "#0A66C2" }} />
-            </a>
+              Alhassan Sahad
+            </h1>
 
-            <a
-              href="https://github.com/asahad"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
+            <h2
+              style={{
+                fontSize: "1.3rem",
+                fontWeight: "400",
+                color: "#4b5563",
+                marginBottom: "25px",
+              }}
             >
-              <BsGithub style={{ fontSize: "34px", color: "#000" }} />
-            </a>
+              Data Scientist
+            </h2>
 
-            <a
-              href="mailto:sahadalhassan96@gmail.com"
-              aria-label="Email"
+            <p
+              style={{
+                fontSize: "1.05rem",
+                lineHeight: "1.8",
+                color: "#374151",
+                maxWidth: "650px",
+              }}
             >
-              <AiOutlineMail style={{ fontSize: "36px", color: "#0A66C2" }} />
-            </a>
+              I’m a Data Scientist with a strong foundation in statistics,
+              machine learning, and applied AI. I design and build data-driven
+              systems that transform complex data into clear insights and
+              measurable real-world impact.
+            </p>
 
-            <Button
-              variant="primary"
-              className="ms-lg-3"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1anLxrDzrR9vTmD64fLP1FOKjupYqyL75/view",
-                  "_blank"
-                )
-              }
+            <p
+              style={{
+                fontSize: "1.05rem",
+                lineHeight: "1.8",
+                color: "#374151",
+                maxWidth: "650px",
+              }}
             >
-              View Resume
-            </Button>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+              My interests include end-to-end machine learning pipelines,
+              experimentation, large language models (LLMs), and
+              retrieval-augmented generation (RAG). I value clarity,
+              reproducibility, and impact in everything I build.
+            </p>
+
+            {/* Social Links */}
+            <div className="mt-4 d-flex align-items-center gap-3">
+              <a
+                href="https://www.linkedin.com/in/alhassan-sahad-735a13160/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsLinkedin size={32} color="#0A66C2" />
+              </a>
+
+              <a
+                href="https://github.com/asahad"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsGithub size={32} color="#111" />
+              </a>
+
+              <a
+                href="mailto:sahadalhassan96@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <AiOutlineMail size={34} color="#111" />
+              </a>
+
+              <Button
+                variant="dark"
+                className="ms-3"
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1anLxrDzrR9vTmD64fLP1FOKjupYqyL75/view",
+                    "_blank"
+                  )
+                }
+              >
+                View Resume
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 };
 
