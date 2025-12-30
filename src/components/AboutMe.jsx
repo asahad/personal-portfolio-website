@@ -5,92 +5,96 @@ import { AiOutlineMail } from "react-icons/ai";
 
 const AboutMe = () => {
   return (
-    <Container fluid className="mt-5">
-      <Row>
+    <Container fluid className="py-5">
+      <Row className="align-items-center">
+        {/* ===== Profile Image ===== */}
         <Col
           xs={12}
-          lg={4}
-          className="text-center mb-4 mb-md-0"
-          style={{ paddingLeft: "10%" }}
+          lg={5}
+          className="text-center mb-5 mb-lg-0"
         >
           <img
             src={profilePic}
-            alt="Profile"
+            alt="Alhassan Sahad"
             style={{
               width: "100%",
-              maxWidth: "500px",
-              height: "auto",
+              maxWidth: "380px",
               borderRadius: "50%",
-              margin: "0 auto",
+              objectFit: "cover",
             }}
           />
         </Col>
-        <Col xs={12} lg={4} className="text-left">
+
+        {/* ===== About Text ===== */}
+        <Col xs={12} lg={6}>
           <h1
-            className="mb-5"
+            className="mb-4"
             style={{
               fontFamily: "Rubik",
               fontWeight: "900",
-              lineHeight: "1em",
+              lineHeight: "1.1",
             }}
           >
             About Me
           </h1>
-          <div className="about-me" style={{ textAlign: "left" }}>
-            <p style={{ margin: "0", padding: "0", fontSize: "20px" }}>
-              I like to use code to solve real-life problems.I am currently a
-              masters student in Data Science and Analytics at the University of
-              Missouri and I will be graduating in May 2024.
-            </p>
-          </div>
-          <div className="social-and-resume mt-4" style={{ textAlign: "left" }}>
+
+          <p style={{ fontSize: "18px", lineHeight: "1.7" }}>
+            I’m a Data Scientist with a strong foundation in statistics,
+            machine learning, and applied AI. I enjoy building systems that
+            transform raw data into insights that drive real-world decisions.
+          </p>
+
+          <p style={{ fontSize: "18px", lineHeight: "1.7" }}>
+            My interests span end-to-end machine learning, experimentation,
+            and modern AI workflows including large language models (LLMs)
+            and retrieval-augmented generation (RAG). I value clarity,
+            reproducibility, and impact in everything I build.
+          </p>
+
+          {/* ===== Social Links + Resume ===== */}
+          <div className="d-flex align-items-center mt-4 flex-wrap gap-3">
             <a
-              className="social-link"
               href="https://www.linkedin.com/in/alhassan-sahad-735a13160/"
               target="_blank"
               rel="noreferrer"
-              style={{ marginRight: "20px" }}
+              aria-label="LinkedIn"
             >
-              <BsLinkedin style={{ fontSize: "40px", color: "#007FFF " }} />
+              <BsLinkedin style={{ fontSize: "34px", color: "#0A66C2" }} />
             </a>
+
             <a
-              className="social-link"
               href="https://github.com/asahad"
               target="_blank"
               rel="noreferrer"
-              style={{ marginRight: "20px" }}
+              aria-label="GitHub"
             >
-              <BsGithub style={{ fontSize: "40px", color: "black" }} />
+              <BsGithub style={{ fontSize: "34px", color: "#000" }} />
             </a>
+
             <a
-              className="social-link"
-              type="email"
               href="mailto:sahadalhassan96@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-              style={{ marginRight: "20px" }}
+              aria-label="Email"
             >
-              <AiOutlineMail style={{ fontSize: "40px", color: "#007FFF" }} />
+              <AiOutlineMail style={{ fontSize: "36px", color: "#0A66C2" }} />
             </a>
 
             <Button
               variant="primary"
+              className="ms-lg-3"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1anLxrDzrR9vTmD64fLP1FOKjupYqyL75/view?usp=drive_link",
+                  "https://drive.google.com/file/d/1anLxrDzrR9vTmD64fLP1FOKjupYqyL75/view",
                   "_blank"
                 )
               }
             >
-              Resume
+              View Resume
             </Button>
           </div>
-        </Col>
-        <Col lg={4} className="d-none d-lg-block">
-          {/* Empty or additional content */}
         </Col>
       </Row>
     </Container>
   );
 };
+
 export default AboutMe;
