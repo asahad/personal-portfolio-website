@@ -5,7 +5,7 @@ import "../App.css";
 const Cover = () => {
   const [typedText, setTypedText] = useState("");
   const originalText =
-    "Hello!\nI'm Alhassan Sahad. I am a Software Engineer and Data Scientist";
+    "Hello!\nI'm Alhassan Sahad.I am Data Scientist";
 
   useEffect(() => {
     let charIndex = 5;
