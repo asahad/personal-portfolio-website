@@ -4,12 +4,7 @@ const MyNavbar = () => {
   return (
     <Navbar bg="white" expand="lg" fixed="top" className="shadow-sm">
       <Container>
-        <Navbar.Brand href="#top" style={{ fontWeight: "700" }}>
-          Alhassan Sahad
-        </Navbar.Brand>
-
         <Navbar.Toggle />
-
         <Navbar.Collapse>
           <Nav className="ms-auto">
             <Nav.Link href="#top">Home</Nav.Link>
