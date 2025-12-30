@@ -1,56 +1,44 @@
-import { Card, Container } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import "../App.css";
+import { Container } from "react-bootstrap";
 
 const Cover = () => {
-  const [typedText, setTypedText] = useState("");
-  const originalText =
-    "Hello!\nI'm Alhassan Sahad.I am Data Scientist";
-
-  useEffect(() => {
-    let charIndex = 5;
-    const typingInterval = setInterval(() => {
-      if (charIndex <= originalText.length) {
-        setTypedText(originalText.slice(0, charIndex));
-        charIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 30);
-
-    return () => clearInterval(typingInterval);
-  }, []);
-
   return (
-    <>
-      <Container className="pt-5 d-none d-md-flex">
-        <Card className="d-flex flex-row align-items-center custom-card pt-5">
-          <Card.Body>
-            <Card.Text
-              className="p-4 cover-text"
-              style={{
-                fontSize: "40px",
-                color: "purple",
-                textShadow: "4px 4px 4px",
-              }}
-            >
-              {typedText}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Container>
+    <Container className="pt-5 pb-5 text-center">
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: "900",
+          fontFamily: "Rubik",
+          lineHeight: "1.2",
+        }}
+      >
+        Hi, I’m Alhassan Sahad
+      </h1>
 
-      <Container className="pt-5 d-md-none">
-        <Card className="no-background-border">
-          <Card.Text
-            className="cover-text text-center"
-            style={{ height: "200px" }}
-          >
-            {typedText}
-          </Card.Text>
-        </Card>
-      </Container>
-    </>
+      <h2
+        className="mt-3"
+        style={{
+          fontSize: "1.5rem",
+          fontWeight: "400",
+          color: "#4b5563",
+        }}
+      >
+        Data Scientist
+      </h2>
+
+      <p
+        className="mt-4 mx-auto"
+        style={{
+          maxWidth: "700px",
+          fontSize: "1.1rem",
+          lineHeight: "1.7",
+          color: "#374151",
+        }}
+      >
+        I build data-driven systems that turn complex data into
+        clear insights and real-world impact.
+      </p>
+    </Container>
   );
 };
+
 export default Cover;
