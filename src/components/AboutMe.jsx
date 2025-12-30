@@ -100,14 +100,6 @@ const AboutMe = () => {
                 <BsGithub size={32} color="#111" />
               </a>
 
-              <a
-                href="mailto:sahadalhassan96@gmail.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <AiOutlineMail size={34} color="#111" />
-              </a>
-
               <Button
                 variant="dark"
                 className="ms-3"
