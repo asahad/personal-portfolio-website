@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
-import ProjectCard from "./ProjectCard"; // Make sure this path is correct
+import ProjectCard from "./ProjectCard";
 
-// Importing the project images
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
 import TrackMyHuntImage from "../img/trackmyhunt.png";
 import wineHubSiteImage from "../img/winehub.jpg";
@@ -14,25 +13,23 @@ const ProjectsSection = () => {
       imageUrl: UsgsImage,
       title: "Streamflow Monitor",
       description:
-        "Streamflow Monitor is a web application designed for the monitoring and visualization of streamflow data across various gauge stations within the United States, with a specific focus on the state of Missouri",
+        "A web application for visualizing and monitoring streamflow data across U.S. gauge stations, with a focus on Missouri.",
       projectUrl: "https://streamflow-monitor.onrender.com/",
       projectGitHubUrl: "https://github.com/asahad/streamflow-monitor",
     },
     {
       imageUrl: ChicagoCrime,
-      title: "ETL and Analytics on Chicago Crime Data",
+      title: "Chicago Crime ETL & Analytics",
       description:
-        "This project delves into the Database Design, ETL (Extract, Transform, Load), and Analytics phases using a comprehensive Chicago crime data set spanning multiple years. the first focuses on designing and creating a structured database, and the second leverages this database to conduct in-depth analytics and derive actionable insights.",
-      // projectUrl: "https://streamflow-monitor.onrender.com/",
+        "End-to-end database design, ETL pipelines, and analytical workflows built on multi-year Chicago crime datasets.",
       projectGitHubUrl:
         "https://github.com/asahad/ETL-and-Analytics-on-Chicago-Crime-Data",
     },
-
     {
       imageUrl: wineHubSiteImage,
       title: "WineHub",
       description:
-        "This is a full-stack e-commerce web application, designed for online retail businesses. The client-side is built using React, ensuring a responsive and interactive user interface, while Redux RTK Query is utilized for state management. The backend is built by by Node.js with the Express framework.MongoDB, coupled with the Mongoose ODM, is used for database implementation, ensuring seamless data handling and storage.",
+        "A full-stack e-commerce application built with React, Redux Toolkit, Node.js, Express, and MongoDB.",
       projectUrl: "https://winehubsite.onrender.com/",
       projectGitHubUrl: "https://github.com/asahad/winehubsite",
     },
@@ -40,7 +37,7 @@ const ProjectsSection = () => {
       imageUrl: TrackMyHuntImage,
       title: "TrackMyHunt",
       description:
-        "A job Application tracker for keeping records of jobs during job hunting.The front end was built using reac t and redux for state management.Built on top of Express JS for backend implementation.",
+        "A job application tracking platform built with React, Redux, and an Express-based backend.",
       projectUrl: "https://trackmyhunt.onrender.com",
       projectGitHubUrl: "https://github.com/asahad/TrackMyHunt",
     },
@@ -48,34 +45,28 @@ const ProjectsSection = () => {
       imageUrl: nucampsiteWebsiteImg,
       title: "NucampSite",
       description:
-        "Full Stack single page application website for a fictitional camping site. This website provides user authentication to interact with the Directory portion of the site, users are able to add comments and hit the like button to the campsites after logging in or creating an account.",
+        "A full-stack single-page application featuring authentication, comments, and user interaction.",
       projectUrl: "https://react-deploy-test-383704.web.app/",
       projectGitHubUrl: "https://github.com/asahad/NucampSite",
     },
-
-    // ... include other projects here ...
   ];
 
   return (
-    <Container className="pt-5 pb-5">
-      <h1 style={{ fontFamily: "Rubik", fontWeight: "900", lineHeight: "1em" }}>
-        My Personal Projects
-      </h1>
-      <hr />
-      <Row>
-        {projects.map((project, index) => (
-          <Col key={index} xs={12} md={6} lg={4} className="pb-3">
-            <ProjectCard
-              imageUrl={project.imageUrl}
-              title={project.title}
-              description={project.description}
-              projectUrl={project.projectUrl}
-              projectGitHubUrl={project.projectGitHubUrl}
-            />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <section id="projects" style={{ padding: "80px 0" }}>
+      <Container>
+        <h2 style={{ fontWeight: "700", marginBottom: "40px" }}>
+          Selected Projects
+        </h2>
+
+        <Row className="g-4">
+          {projects.map((project, index) => (
+            <Col key={index} xs={12} md={6} lg={4}>
+              <ProjectCard {...project} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
   );
 };
 

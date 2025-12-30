@@ -8,48 +8,48 @@ const ProjectCard = ({
   projectGitHubUrl,
 }) => {
   return (
-    <Card className="mb-3" style={{ minHeight: "500px" }}>
-      {" "}
-      {/* Set a specific height */}
+    <Card className="h-100 shadow-sm">
       <Card.Img
         variant="top"
         src={imageUrl}
         alt={title}
-        style={{ height: "200px", objectFit: "cover" }}
+        style={{ height: "180px", objectFit: "cover" }}
       />
-      <Card.Body style={{ overflowY: "auto" }}>
-        {" "}
-        {/* Add scroll for overflow */}
-        <Card.Title style={{ fontSize: "30px" }}>{title}</Card.Title>
+
+      <Card.Body className="d-flex flex-column">
+        <Card.Title style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+          {title}
+        </Card.Title>
+
         <Card.Text
           style={{
-            // maxHeight: "100px",
-            // overflow: "hidden",
-            // textOverflow: "ellipsis",
-            minHeight: "215px",
-            textAlign: "justify",
+            fontSize: "0.95rem",
+            lineHeight: "1.6",
+            color: "#444",
           }}
         >
           {description}
         </Card.Text>
-        <div className="mt-auto">
-          {" "}
-          {/* Buttons aligned to bottom */}
+
+        <div className="mt-auto d-flex gap-2">
+          {projectUrl && (
+            <Button
+              size="sm"
+              variant="dark"
+              href={projectUrl}
+              target="_blank"
+            >
+              Live
+            </Button>
+          )}
+
           <Button
-            variant="primary"
-            href={projectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Project
-          </Button>{" "}
-          <Button
-            variant="secondary"
+            size="sm"
+            variant="outline-dark"
             href={projectGitHubUrl}
             target="_blank"
-            rel="noopener noreferrer"
           >
-            GitHub Repo
+            Code
           </Button>
         </div>
       </Card.Body>

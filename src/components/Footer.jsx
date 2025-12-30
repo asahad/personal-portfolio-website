@@ -1,17 +1,12 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   return (
-    <footer style={{ backgroundColor: "#333", padding: "20px 0", color: "white" }}>
-      <Container>
-        <Row>
-          <Col className="text-center">
-            <p style={{ fontSize: "22px" }}>
-              Copyright &copy; {currentYear} Alhassan Sahad
-            </p>
-          </Col>
-        </Row>
+    <footer style={{ padding: "30px 0", borderTop: "1px solid #eee" }}>
+      <Container className="text-center">
+        <p style={{ margin: 0, color: "#777" }}>
+          © {new Date().getFullYear()} Alhassan Sahad
+        </p>
       </Container>
     </footer>
   );
