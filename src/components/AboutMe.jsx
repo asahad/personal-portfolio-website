@@ -78,10 +78,20 @@ const AboutMe = () => {
             >
               My interests include end-to-end machine learning pipelines,
               experimentation, large language models (LLMs), and
-              retrieval-augmented generation (RAG). I value clarity,
-              reproducibility, and impact in everything I build.
+              retrieval-augmented generation (RAG). I have a Masters degree in Data Science and Analytics from 
+              the University of Missouri-Columbia.
             </p>
-
+              <p
+              style={{
+                fontSize: "1.05rem",
+                lineHeight: "1.8",
+                color: "#374151",
+                maxWidth: "650px",
+              }}
+            >
+              I currently work as a Data Scientist at Weyerhaeuser based in Seattle. Previous I worked as a 
+              Data Scientist at NASA-Marshall Space Flight Center.
+            </p>
             {/* Social Links */}
             <div className="mt-4 d-flex align-items-center gap-3">
               <a
