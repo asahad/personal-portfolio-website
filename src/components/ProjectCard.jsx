@@ -4,7 +4,6 @@ const ProjectCard = ({
   imageUrl,
   title,
   description,
-  projectUrl,
   projectGitHubUrl,
 }) => {
   return (
@@ -17,7 +16,12 @@ const ProjectCard = ({
       />
 
       <Card.Body className="d-flex flex-column">
-        <Card.Title style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+        <Card.Title
+          style={{
+            fontSize: "1.2rem",
+            fontWeight: "600",
+          }}
+        >
           {title}
         </Card.Title>
 
@@ -26,30 +30,21 @@ const ProjectCard = ({
             fontSize: "0.95rem",
             lineHeight: "1.6",
             color: "#444",
+            flexGrow: 1,
           }}
         >
           {description}
         </Card.Text>
 
-        <div className="mt-auto d-flex gap-2">
-          {projectUrl && (
-            <Button
-              size="sm"
-              variant="dark"
-              href={projectUrl}
-              target="_blank"
-            >
-              Live
-            </Button>
-          )}
-
+        <div className="mt-3">
           <Button
             size="sm"
             variant="outline-dark"
             href={projectGitHubUrl}
             target="_blank"
+            rel="noopener noreferrer"
           >
-            Code
+            View Code
           </Button>
         </div>
       </Card.Body>
