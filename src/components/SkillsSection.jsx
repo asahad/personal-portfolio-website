@@ -31,7 +31,14 @@ const SkillsSection = () => {
   return (
     <section id="skills" style={{ padding: "80px 0", background: "#fafafa" }}>
       <Container>
-        <h2 style={{ fontWeight: "700", marginBottom: "40px" }}>
+        <h2
+          style={{
+            fontWeight: "700",
+            marginBottom: "40px",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
           Skills
         </h2>
 
@@ -47,4 +54,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection;
+export default SkillsSection
