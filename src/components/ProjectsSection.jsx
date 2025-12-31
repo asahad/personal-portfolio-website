@@ -34,14 +34,6 @@ const ProjectsSection = () => {
       projectGitHubUrl: "https://github.com/asahad/winehubsite",
     },
     {
-      imageUrl: TrackMyHuntImage,
-      title: "TrackMyHunt",
-      description:
-        "A job application tracking platform built with React, Redux, and an Express-based backend.",
-      projectUrl: "https://trackmyhunt.onrender.com",
-      projectGitHubUrl: "https://github.com/asahad/TrackMyHunt",
-    },
-    {
       imageUrl: nucampsiteWebsiteImg,
       title: "NucampSite",
       description:
