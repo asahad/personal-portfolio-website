@@ -46,7 +46,14 @@ const ProjectsSection = () => {
   return (
     <section id="projects" style={{ padding: "80px 0" }}>
       <Container>
-        <h2 style={{ fontWeight: "700", marginBottom: "40px" }}>
+        <h2
+          style={{
+            fontWeight: "700",
+            marginBottom: "40px",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
           Selected Projects
         </h2>
 
@@ -62,4 +69,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export
