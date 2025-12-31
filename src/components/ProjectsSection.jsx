@@ -69,4 +69,4 @@ const ProjectsSection = () => {
   );
 };
 
-ProjectsSection;
+export default ProjectsSection;
