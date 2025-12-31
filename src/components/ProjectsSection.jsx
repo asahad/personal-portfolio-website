@@ -69,4 +69,4 @@ const ProjectsSection = () => {
   );
 };
 
-export
+ProjectsSection;
