@@ -54,7 +54,7 @@ const ProjectsSection = () => {
             width: "100%",
           }}
         >
-          Selected Projects
+          Sample Projects
         </h2>
 
         <Row className="g-4">
