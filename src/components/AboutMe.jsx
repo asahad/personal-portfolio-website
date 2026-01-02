@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import profilePic from "../img/profilePic.jpg";
+import profilePic from "../img/profile_picture.jpg";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 
