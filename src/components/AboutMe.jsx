@@ -79,7 +79,7 @@ const AboutMe = () => {
               My interests include end-to-end machine learning pipelines,
               experimentation, large language models (LLMs), and
               retrieval-augmented generation (RAG). I have a Masters degree in Data Science and Analytics from 
-              the University of Missouri-Columbia.
+              the University of Missouri-Columbia and a Bachelors in Engineering from the Kwame Nkrumah University of Science and Technology, Ghana.
             </p>
               <p
               style={{
