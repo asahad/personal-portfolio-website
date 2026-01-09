@@ -1,12 +1,11 @@
+
 import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer style={{ padding: "30px 0", borderTop: "1px solid #eee" }}>
-      <Container className="text-center">
-        <p style={{ margin: 0, color: "#777" }}>
-          © {new Date().getFullYear()} Alhassan Sahad
-        </p>
+    <footer className="site-footer">
+      <Container className="text-center py-3">
+        <p className="mb-0">&copy; {new Date().getFullYear()} Alhassan Sahad</p>
       </Container>
     </footer>
   );

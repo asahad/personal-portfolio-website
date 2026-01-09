@@ -131,3 +131,25 @@ body {
     animation: none !important;
   }
 }
+
+.custom-navbar {
+  background-color: #fff9d9; /* Pale yellow */
+}
+
+.navbar-brand-text {
+  color: #1e3a8a; /* Deep blue */
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-link-custom {
+  color: #1e3a8a !important;
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #0f2f6b !important; /* Slightly darker blue on hover */
+  text-decoration: underline;
+}
