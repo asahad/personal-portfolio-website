@@ -1,6 +1,8 @@
+
 import { Container, Row, Col } from "react-bootstrap";
 import SkillCard from "./SkillCard";
 
+// Import skill logos
 import jsLogo from "../img/JSLogo.png";
 import reactLogo from "../img/reactLogo.png";
 import htmlLogo from "../img/htmlLogo.png";
@@ -29,22 +31,18 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" style={{ padding: "80px 0", background: "#fafafa" }}>
+    <section id="skills" className="section-container light-bg">
       <Container>
-        <h2
-          style={{
-            fontWeight: "700",
-            marginBottom: "40px",
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
+        <h2 className="section-title" data-aos="fade-up">
           Skills
         </h2>
-
-        <Row className="g-4">
+        <Row className="g-4 justify-content-center">
           {skills.map((skill, index) => (
-            <Col key={index} xs={4} sm={3} md={2}>
+            <Col 
+              key={index} xs={4} sm={3} md={2} 
+              className="text-center" 
+              data-aos="zoom-in" data-aos-delay={index * 100}
+            >
               <SkillCard {...skill} />
             </Col>
           ))}
@@ -54,4 +52,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection
+export default SkillsSection;

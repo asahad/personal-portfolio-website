@@ -1,11 +1,13 @@
+
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
 
+// Import project images
 import nucampsiteWebsiteImg from "../img/nucampWebsiteImage.jpg";
-import TrackMyHuntImage from "../img/trackmyhunt.png";
+import trackMyHuntImage from "../img/trackmyhunt.png";
 import wineHubSiteImage from "../img/winehub.jpg";
 import UsgsImage from "../img/usgsImage.png";
-import ChicagoCrime from "../img/chicagoCrime.png";
+import ChicagoCrimeImage from "../img/chicagoCrime.png";
 
 const ProjectsSection = () => {
   const projects = [
@@ -18,16 +20,17 @@ const ProjectsSection = () => {
       projectGitHubUrl: "https://github.com/asahad/streamflow-monitor",
     },
     {
-      imageUrl: ChicagoCrime,
+      imageUrl: ChicagoCrimeImage,
       title: "Chicago Crime ETL & Analytics",
       description:
         "End-to-end database design, ETL pipelines, and analytical workflows built on multi-year Chicago crime datasets.",
+      projectUrl: null,
       projectGitHubUrl:
         "https://github.com/asahad/ETL-and-Analytics-on-Chicago-Crime-Data",
     },
     {
       imageUrl: wineHubSiteImage,
-      title: "WineHub",
+      title: "WineHub E-commerce",
       description:
         "A full-stack e-commerce application built with React, Redux Toolkit, Node.js, Express, and MongoDB.",
       projectUrl: "https://winehubsite.onrender.com/",
@@ -44,23 +47,18 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" style={{ padding: "80px 0" }}>
+    <section id="projects" className="section-container">
       <Container>
-        <h2
-          style={{
-            fontWeight: "700",
-            marginBottom: "40px",
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
+        <h2 className="section-title" data-aos="fade-up">
           Sample Projects
         </h2>
-
         <Row className="g-4">
           {projects.map((project, index) => (
-            <Col key={index} xs={12} md={6} lg={4}>
-              <ProjectCard {...project} />
+            <Col 
+              key={index} xs={12} md={6} lg={4} 
+              data-aos="fade-up" data-aos-delay={index * 100}
+            >
+              <ProjectCard {...project} className="custom-project-card" />
             </Col>
           ))}
         </Row>
