@@ -132,12 +132,13 @@ body {
   }
 }
 
+
 .custom-navbar {
-  background-color: #fff9d9; /* Pale yellow */
+  background-color: #fff9d9 !important;
 }
 
 .navbar-brand-text {
-  color: #1e3a8a; /* Deep blue */
+  color: #1e3a8a !important;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -150,6 +151,6 @@ body {
 }
 
 .nav-link-custom:hover {
-  color: #0f2f6b !important; /* Slightly darker blue on hover */
+  color: #0f2f6b !important;
   text-decoration: underline;
 }
