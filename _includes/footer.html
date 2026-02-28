@@ -1,11 +1,5 @@
 <footer class="footer">
-  <div class="container">
-    <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
-
-    <nav class="footer-links">
-      {% if site.github %}<a href="{{ site.github }}">Github</a>{% endif %}
-      {% if site.linkedln %}<a href="{{ site.linkedln }}">LinkedIn</a>{% endif %}
-      <a href="{{ "/feed.xml" | relative_url }}">Feed</a>
-    </nav>
+  <div class="container" style="text-align:center;">
+    <p style="margin: 0;">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
   </div>
 </footer>
