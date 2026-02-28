@@ -16,7 +16,7 @@ url: "https://alhassansahad.com" # your custom domain
 #-------------------------------
 # About Section
 # (Quoted because it contains HTML)
-# subtitle: 'Data Science <span style="color:#f58506"> Portfolio </span>'
+subtitle: ' <span style="color:#f58506"> </span>'
 location: "Seattle, USA"
 resume_url: /docs/Louis_Agyekum_Senior_Analyst_Modelling_Resu.pdf
 avatar_image: /img/louis-agyekum.jpg
