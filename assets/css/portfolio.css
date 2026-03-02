@@ -827,3 +827,278 @@ ul, ol {
     width: 100%;
   }
 }
+
+
+/* ================================================================
+   POST PAGE STYLES
+   ================================================================ */
+
+/* ── Post Hero ───────────────────────────────────────────────── */
+.post-hero {
+  padding-top: var(--nav-h);
+}
+
+/* Project posts: full-width image banner */
+.post-hero-img {
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Fade the image into the page background */
+.post-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,15,30,0.2) 0%, var(--bg) 100%);
+}
+
+/* Blog posts: gradient banner */
+.post-hero-gradient {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-hero-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+.post-hero-icon {
+  font-size: 4.5rem;
+  z-index: 1;
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.6));
+}
+
+/* Meta row: back link + tags */
+.post-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 36px 0 20px;
+  flex-wrap: wrap;
+}
+
+.post-back {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 6px;
+  transition: opacity 0.2s;
+}
+
+.post-back:hover {
+  opacity: 0.75;
+}
+
+/* Post title */
+.post-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+
+/* Date · read time */
+.post-meta-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fira Code', 'Monaco', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 52px;
+}
+
+/* ── Post Body ───────────────────────────────────────────────── */
+.post-main {
+  padding-bottom: 96px;
+}
+
+.post-body {
+  max-width: 720px;
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.82;
+}
+
+.post-body h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 52px 0 16px;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.post-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 36px 0 12px;
+}
+
+.post-body h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 24px 0 8px;
+}
+
+.post-body p {
+  margin-bottom: 20px;
+}
+
+.post-body strong {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.post-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+
+.post-body a:hover {
+  opacity: 0.8;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 20px 1.5rem;
+}
+
+.post-body ul {
+  list-style: disc;
+}
+
+.post-body ol {
+  list-style: decimal;
+}
+
+.post-body li {
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+.post-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 14px 20px;
+  margin: 28px 0;
+  background: var(--accent-glow);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.post-body blockquote p {
+  margin: 0;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 44px 0;
+}
+
+.post-body img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin: 28px 0;
+  border: 1px solid var(--border);
+}
+
+/* ── Tables ──────────────────────────────────────────────────── */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.post-body th {
+  text-align: left;
+  padding: 10px 16px;
+  background: var(--bg-card);
+  color: var(--text-h);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.post-body td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.post-body tr:last-child td {
+  border-bottom: none;
+}
+
+.post-body tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Code ────────────────────────────────────────────────────── */
+.post-body code {
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+  font-size: 0.84em;
+  background: var(--bg-card);
+  color: var(--accent);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.post-body pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  overflow-x: auto;
+  margin: 28px 0;
+  line-height: 1.65;
+}
+
+.post-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-h);
+  font-size: 0.88rem;
+}
+
+/* ── Post Footer Nav ─────────────────────────────────────────── */
+.post-footer-nav {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Post responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .post-hero-img    { height: 240px; }
+  .post-hero-gradient { height: 200px; }
+  .post-hero-icon   { font-size: 3.5rem; }
+  .post-meta-top    { padding-top: 24px; }
+  .post-meta-bottom { margin-bottom: 36px; }
+  .post-body        { font-size: 0.97rem; }
+  .post-body pre    { padding: 16px 18px; }
+}
