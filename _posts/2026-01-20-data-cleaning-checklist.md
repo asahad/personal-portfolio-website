@@ -4,6 +4,8 @@ title: "The Complete Data Cleaning & Preparation Checklist"
 type: blog
 tags: [Data Cleaning, Python, pandas, Data Science]
 description: "A practical, step-by-step checklist for preparing your dataset before any modelling work — covering missing values, outliers, encoding, scaling, and data leakage."
+cover: "linear-gradient(135deg, #0f2027 0%, #1a4a3a 50%, #2c5364 100%)"
+cover_icon: "🧹"
 ---
 
 Garbage in, garbage out. No model — however sophisticated — can compensate for a poorly prepared dataset. Data cleaning is often the difference between a model that performs well in production and one that fails silently.

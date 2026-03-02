@@ -594,116 +594,50 @@ ul, ol {
 }
 
 
-/* ── Blog Cards ──────────────────────────────────────────────── */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
-}
+/* ── Blog Gradient Cover (reuses .project-card structure) ───── */
 
-.blog-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 32px;
+/* The cover replaces the photo — rendered as a CSS gradient */
+.blog-cover {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
-}
-
-.blog-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.blog-card-meta {
-  display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
-.blog-date {
-  font-family: 'Fira Code', 'Monaco', monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.05em;
+/* Subtle dot-grid pattern overlay */
+.blog-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
 }
 
-.blog-read-time {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+/* Large emoji icon centred in the cover */
+.blog-cover-icon {
+  font-size: 3rem;
+  line-height: 1;
+  z-index: 1;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s ease;
 }
 
-.blog-read-time::before {
-  content: '·';
-  margin-right: 8px;
-  color: var(--text-muted);
+.project-card:hover .blog-cover-icon {
+  transform: scale(1.1);
 }
 
-.blog-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-h);
-  line-height: 1.4;
-}
-
-.blog-title a {
-  color: inherit;
-  transition: color 0.2s;
-}
-
-.blog-title a:hover {
-  color: var(--accent);
-}
-
-.blog-excerpt {
-  font-size: 0.88rem;
-  color: var(--text);
-  line-height: 1.7;
-  flex: 1;
-}
-
-.blog-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 4px;
-  flex-wrap: wrap;
-}
-
-.blog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.blog-tag {
+/* Date · read time line */
+.blog-cover-meta {
   font-family: 'Fira Code', 'Monaco', monospace;
   font-size: 0.68rem;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
-  padding: 2px 8px;
-  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.1em;
+  z-index: 1;
 }
-
-.blog-link {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent);
-  white-space: nowrap;
-  transition: letter-spacing 0.2s;
-}
-
-.blog-link:hover {
-  letter-spacing: 0.02em;
-}
-
-/* ── Navbar: add Blog link ───────────────────────────────────── */
 
 
 /* ── Contact ─────────────────────────────────────────────────── */

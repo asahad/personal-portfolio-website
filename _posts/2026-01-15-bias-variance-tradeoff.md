@@ -4,6 +4,8 @@ title: "Understanding the Bias-Variance Trade-off"
 type: blog
 tags: [Machine Learning, Statistics, Python, Data Science]
 description: "A clear, visual explanation of one of the most important concepts in machine learning — and exactly what to do when your model gets it wrong."
+cover: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)"
+cover_icon: "⚖️"
 ---
 
 One of the first concepts you encounter in machine learning — and one that keeps coming back — is the **bias-variance trade-off**. It sounds abstract at first, but it directly explains the two most common model failure modes: underfitting and overfitting.
