@@ -81,9 +81,6 @@
     <div class="container">
       <div class="post-meta-top">
         <a href="/" class="post-back">← Back to Portfolio</a>
-        {% for tag in page.tags limit: 3 %}
-        <span class="card-tag">{{ tag }}</span>
-        {% endfor %}
       </div>
       <h1 class="post-title">{{ page.title }}</h1>
       <div class="post-meta-bottom">
