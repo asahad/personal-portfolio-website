@@ -1,5 +1,5 @@
 /* ================================================================
-   portfolio.css — Complete standalone styles for alhassansahad.com
+   portfolio.css -Complete standalone styles for alhassansahad.com
    ================================================================ */
 
 
@@ -596,7 +596,7 @@ ul, ol {
 
 /* ── Blog Gradient Cover (reuses .project-card structure) ───── */
 
-/* The cover replaces the photo — rendered as a CSS gradient */
+/* The cover replaces the photo -rendered as a CSS gradient */
 .blog-cover {
   display: flex;
   flex-direction: column;
