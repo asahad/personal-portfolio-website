@@ -82,6 +82,7 @@ ul, ol {
   font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
   font-size: 0.78rem;
   color: var(--accent);
+  text-align: center;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -91,6 +92,7 @@ ul, ol {
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--text-h);
+  text-align: center;
   letter-spacing: -0.02em;
   margin-bottom: 12px;
 }
@@ -99,6 +101,9 @@ ul, ol {
   color: var(--text);
   max-width: 520px;
   margin-bottom: 48px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.75;
 }
 
