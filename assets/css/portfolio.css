@@ -1102,3 +1102,42 @@ ul, ol {
   .post-body        { font-size: 0.97rem; }
   .post-body pre    { padding: 16px 18px; }
 }
+
+
+/* ── Card Tags ───────────────────────────────────────────────── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 16px;
+}
+
+.card-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: 0.02em;
+}
+
+
+/* ── Footer Links ────────────────────────────────────────────── */
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}

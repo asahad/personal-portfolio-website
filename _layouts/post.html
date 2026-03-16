@@ -24,6 +24,10 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="{{ page.title }}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ page.content | strip_html | truncate: 160 }}{% endif %}">
+  <meta name="twitter:image"       content="{% if page.image %}{{ site.url }}/img{{ page.image }}{% else %}{{ site.url }}{{ site.avatar_image }}{% endif %}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,6 +127,11 @@
        ╚══════════════════════════════════════╝ -->
   <footer class="footer">
     <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/alhassansahad" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/asahad" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:alhassansahad24@gmail.com">Email</a>
+    </div>
   </footer>
 
   <!-- ╔══════════════════════════════════════╗

@@ -57,7 +57,7 @@ layout: home
         </p>
 
         <p class="fade-in fade-in-d2">
-          I've applied these skills across domains including semantic segmentation customer
+          I've applied these skills across domains including semantic segmentation, customer
           segmentation, causal inference, statistical testing, and deep learning-based
           recommendation systems. I'm currently open to
           <strong>Data Scientist</strong> and <strong>ML Engineer</strong> roles.
@@ -108,6 +108,12 @@ layout: home
               {{ post.content | strip_html | truncate: 130 }}
             {% endif %}
           </p>
+
+          {% if post.tags.size > 0 %}
+          <div class="card-tags">
+            {% for tag in post.tags %}<span class="card-tag">{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
 
           <a href="{{ post.url }}" class="card-link">
             Read Case Study <span aria-hidden="true">→</span>
@@ -184,12 +190,18 @@ layout: home
       <h2 class="section-title fade-in">Let's Work Together</h2>
       <p class="contact-desc fade-in">
         I'm actively looking for <strong>Data Scientist</strong> and
-        <strong>ML Engineer</strong> opportunities. If you have a role, a project,
-        or just want to connect. My inbox is always open.
+        <strong>ML Engineer</strong> opportunities — if you have a role, a project,
+        or just want to connect, my inbox is always open.
       </p>
       <div class="contact-links fade-in">
         <a href="{{ site.resume_url }}" class="btn btn-primary" target="_blank" rel="noopener">
           Download Resume
+        </a>
+        <a href="https://www.linkedin.com/in/alhassansahad" class="btn btn-outline" target="_blank" rel="noopener">
+          LinkedIn ↗
+        </a>
+        <a href="mailto:alhassansahad24@gmail.com" class="btn btn-outline">
+          Email ↗
         </a>
         <a href="https://github.com/asahad" class="btn btn-outline" target="_blank" rel="noopener">
           GitHub ↗

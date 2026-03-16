@@ -9,7 +9,7 @@ plugins:
 #-------------------------------
 # General Site Settings
 title: Alhassan Sahad
-description: "Data Analyst & ML Engineer based in Seattle. I build end-to-end machine learning pipelines and turn complex datasets into clear, actionable business insights -from customer segmentation and deep learning to causal inference and statistical testing."
+description: "Data Scientist based in Seattle. I build end-to-end machine learning systems — from deep learning and computer vision to causal inference and customer analytics — turning raw data into clear, actionable business decisions."
 baseurl: "" # keep empty for a custom domain at the root
 url: "https://alhassansahad.com" # your custom domain
 author: Alhassan Sahad
@@ -17,7 +17,7 @@ author: Alhassan Sahad
 #-------------------------------
 # About Section
 # (Quoted because it contains HTML)
-subtitle: 'Data Analyst <span style="color:#f58506">& ML Engineer</span>'
+subtitle: 'Data Scientist <span style="color:#38BDF8">& ML Engineer</span>'
 location: "Seattle, WA"
 resume_url: /docs/Resume_Alhassan_Sahad.pdf
 avatar_image: /img/profile_picture_alhassan_sahad.jpg
