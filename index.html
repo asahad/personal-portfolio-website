@@ -3,35 +3,14 @@ layout: home
 ---
 
 <!-- ═══════════════════════════════════════════════════════════
-     HERO
+     HERO / ABOUT (combined)
      ═══════════════════════════════════════════════════════════ -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <p class="hero-greeting">Hi, I am</p>
-    <h1 class="hero-name">Alhassan Sahad.</h1>
-    <h2 class="hero-role">Data Scientist</h2>
-    <p class="hero-desc">
-      I build end-to-end machine learning systems from deep learning and computer vision
-      to causal inference and customer analytics that turn raw data into clear,
-      actionable business decisions.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View My Work</a>
-      <a href="{{ site.resume_url }}" class="btn btn-outline" target="_blank" rel="noopener">
-        Download Resume ↗
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     ABOUT
-     ═══════════════════════════════════════════════════════════ -->
-<section id="about" class="section">
+<section id="about" class="section section-hero" >
   <div class="container">
 
-    <p class="section-label fade-in">About</p>
+    <p class="hero-greeting fade-in">Hi, I am</p>
+    <h1 class="hero-name fade-in">Alhassan Sahad.</h1>
+    <p class="hero-role fade-in">Data Scientist</p>
 
     <div class="about-grid">
 
@@ -40,12 +19,11 @@ layout: home
       </div>
 
       <div class="about-body">
-        <h2 class="section-title fade-in">About Me</h2>
 
         <p class="fade-in">
-          I'm a Data Scientist based in <strong>Seattle, WA</strong> with a masters degree in Data Science
-          . I'm passionate about applying machine learning to solve
-          real problems and always with a focus on measurable business impact over
+          I'm a Data Scientist based in <strong>Seattle, WA</strong> with a master's degree in Data Science.
+          I'm passionate about applying machine learning to solve
+          real problems, always with a focus on measurable business impact over
           theoretical complexity.
         </p>
 
@@ -62,6 +40,13 @@ layout: home
           recommendation systems. I'm currently open to
           <strong>Data Scientist</strong> and <strong>ML Engineer</strong> roles.
         </p>
+
+        <div class="hero-cta fade-in fade-in-d2">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="{{ site.resume_url }}" class="btn btn-outline" target="_blank" rel="noopener">
+            Download Resume ↗
+          </a>
+        </div>
 
       </div>
     </div>
