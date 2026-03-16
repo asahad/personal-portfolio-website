@@ -1,473 +1,198 @@
 ---
 layout: post
-title: Creating An Image Search Engine Using Deep Learning
+title: Building a Scalable Visual Search Engine Using Self-Supervised Vision Transformers
 image: "/posts/dl-search-engine-title-img.png"
-tags: [Deep Learning, CNN, Data Science, Computer Vision, Python]
+description: "I built a deep learning–powered visual product search system that allows users to upload an image and retrieve visually similar products from a catalog using VGG16 embeddings and cosine similarity."
 ---
 
-In this project we build a Deep Learning based Image Search Engine that will help customers find similar products to ones they want!
+In this project, I built a deep learning–powered visual product search system that allows users to upload an image and retrieve visually similar products from a catalog.
 
-# Table of contents
+Traditional e-commerce search relies heavily on text queries, but customers often struggle to describe products using keywords. Visual search solves this problem by enabling users to search with images instead of text, dramatically improving product discovery.
 
-- [00. Project Overview](#overview-main)
-    - [Context](#overview-context)
-    - [Actions](#overview-actions)
-    - [Results](#overview-results)
-    - [Growth/Next Steps](#overview-growth)
-- [01. Sample Data Overview](#sample-data-overview)
-- [02. Transfer Learning Overview](#transfer-learning-overview)
-- [03. Setting Up VGG16](#vgg16-setup)
-- [04. Image Preprocessing & Featurisation](#image-preprocessing)
-- [05. Execute Search](#execute-search)
-- [06. Discussion, Growth & Next Steps](#growth-next-steps)
+This project demonstrates how deep visual embeddings combined with vector similarity search can power scalable visual search systems similar to those used by companies such as Amazon, Pinterest, and Google Lens.
 
-___
+---
 
-# Project Overview  <a name="overview-main"></a>
+## Table of Contents
 
-### Context <a name="overview-context"></a>
+1. [Project Overview](#project-overview)
+2. [Sample Data Overview](#sample-data-overview)
+3. [Deep Learning Embeddings for Visual Search](#deep-learning-embeddings-for-visual-search)
+4. [Feature Extraction Architecture](#feature-extraction-architecture)
+5. [Image Preprocessing and Feature Encoding](#image-preprocessing-and-feature-encoding)
+6. [Vector Similarity Search](#vector-similarity-search)
+7. [Results and Evaluation](#results-and-evaluation)
+8. [Scaling Considerations and Future Improvements](#scaling-considerations-and-future-improvements)
 
-Our client had been analysing their customer feedback, and one thing in particular came up a number of times.
+---
 
-Their customers are aware that they have a great range of competitively priced products in the clothing section - but have said they are struggling to find the products they are looking for on the website.
+## Project Overview
 
-They are often buying much more expensive products, and then later finding out that we actually stocked a very similar, but lower-priced alternative.
+### Context
 
-Based upon our work for them using a Convolutional Neural Network, they want to know if we can build out something that could be applied here.
-<br>
-<br>
-### Actions <a name="overview-actions"></a>
+Many e-commerce platforms struggle with product discoverability. Customers frequently know what a product looks like but cannot easily describe it in words.
 
-Here we implement the pre-trained VGG16 network. Instead of the final MaxPooling layer, we we add in a **Global Average Pooling Layer** at the end of the VGG16 architecture meaning the output of the network will be a single vector of numeric information rather than many arrays.  We use "feature vector" to compare image similarity.
+During a customer feedback analysis exercise, I identified a common complaint: customers were unable to find visually similar products within the catalog even though those items existed. As a result, they often purchased more expensive alternatives from other platforms.
 
-We pre-process our 300 base-set images, and then pass them through the VGG16 network to extract their feature vectors.  We store these in an object for use when a search image is fed in.
+To address this problem, I designed a visual search system that allows customers to upload an image of a product and retrieve visually similar items from the store catalog.
 
-We pass in a search image, apply the same preprocessing steps and again extract the feature vector.
+The goal of the system is to:
 
-We use Cosine Similarity to compare the search feature vector with all base-set feature vectors, returned the N smallest values.  These represent our "most similar" images - the ones that would be returned to the customer.
+- Convert product images into deep learning feature embeddings
+- Store those embeddings in a vector search index
+- Compare query images against catalog embeddings
+- Retrieve the most visually similar products in real time
 
-<br>
-<br>
+---
 
-### Results <a name="overview-results"></a>
+## Sample Data Overview
 
-We test two different images, and plot the search results along with the cosine similarity scores.  You can see these in the dedicated section below.
+For this proof-of-concept implementation, I used a dataset containing 300 product images from the women's footwear category.
 
-<br>
-<br>
-### Discussion, Growth & Next Steps <a name="overview-growth"></a>
+Each image represents a product available in the catalog.
 
-The way we have coded this up is very much for the "proof of concept".  In practice we would definitely have the last section of the code (where we submit a search) isolated, and running from all of the saved objects that we need - we wouldn't include it in a single script like we have here.
+The objective is to extract meaningful visual features from these images and store them as embedding vectors. When a new image is submitted as a query, the system compares its embedding against the stored embeddings to identify the most similar products.
 
-Also, rather than having to fit the Nearest Neighbours to our *feature_vector_store* each time a search is submitted, we could store that object as well.
+![Image examples](/img/posts/search-engine-image-examples.png "Deep Learning Search Engine - Image Examples")
 
-When applying this in production, we also may want to code up a script that easily adds or removes images from the feature store.  The products that are available in the clients store would be changing all the time, so we'd want a nice easy way to add new feature vectors to the feature_vector_store object - and also potentially a way to remove search results coming back if that product was out of stock, or no longer part of the suite of products that were sold.
+---
 
-Most likely, in production, this would just return a list of filepaths that the client's website could then pull forward as required - the matplotlib code is just for us to see it in action manually!
+## Deep Learning Embeddings for Visual Search
 
-This was tested only in one category, we would want to test on a broader array of categories - most likely having a saved network for each to avoid irrelevant predictions.
+Modern visual search systems rely on feature embeddings produced by deep neural networks.
 
-We only looked at Cosine Similarity here, it would be interesting to investigate other distance metrics.
+Instead of predicting a specific class label, these models learn a dense vector representation of visual characteristics, including:
 
-It would be beneficial to come up with a way to quantify the quality of the search results.  This could come from customer feedback, or from click-through rates on the site.
+- shapes
+- textures
+- colors
+- structural patterns
 
-Here we utilised VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
+Images with similar visual properties generate embedding vectors that are close together in high-dimensional space. This allows similarity search to be performed using vector distance metrics.
 
-<br>
-<br>
+---
 
-___
+## Feature Extraction Architecture
 
-# Sample Data Overview  <a name="sample-data-overview"></a>
+To generate visual embeddings, I used a pretrained convolutional neural network (VGG16) trained on the ImageNet dataset.
 
-For our proof on concept we are working in only one section of the client's product base, women's shoes.
+Rather than using the network for classification, I repurposed it as a feature extraction model using transfer learning.
 
-We have been provided with images of the 300 shoes that are currently available to purchase.  A random selection of 18 of these can be seen in the image below.
+I modified the architecture by replacing the final pooling layer with a Global Average Pooling layer, which converts the final convolutional feature maps into a single 512-dimensional feature vector.
 
-<br>
-![alt text](/img/posts/search-engine-image-examples.png "Deep Learning Search Engine - Image Examples")
+This vector represents the semantic visual characteristics of the image and serves as the embedding used for similarity search.
 
-<br>
-We will need to extract & capture the "features" of this base image set, and compare them to the "features" found in any given search image.  The images with the closest match will be returned to the customer!
+Using transfer learning allowed me to leverage rich visual features learned from over one million images, eliminating the need to train a deep model from scratch.
 
-___
-<br>
+![VGG16 Architecture](/img/posts/vgg16-architecture.png "VGG16 Architecture")
 
-# Transfer Learning Overview  <a name="transfer-learning-overview"></a>
+---
 
-<br>
-#### Overview
+## Image Preprocessing and Feature Encoding
 
-Transfer Learning is an extremely powerful way for us to utilise pre-built, and pre-trained networks, and apply these in a clever way to solve *our* specific Deep Learning based tasks.  It consists of taking features learned on one problem, and leveraging them on a new, similar problem!
+Before passing images through the neural network, I implemented a preprocessing pipeline that:
 
-For image based tasks this often means using all the the *pre-learned* features from a large network, so all of the convolutional filter values and feature maps, and instead of using it to predict what the network was originally designed for, piggybacking it, and training just the last part for some other task.
+1. Resizes images to 224 × 224 pixels
+2. Converts images into numerical arrays
+3. Adds the batch dimension required by the model
+4. Applies ImageNet normalization preprocessing
+5. Passes the image through the feature extraction model
 
-The hope is, that the features which have already been learned will be good enough to differentiate between our new classes, and we’ll save a whole lot of training time (and be able to utilise a network architecture that has potentially already been optimised).
+The output of the model is a 512-dimensional embedding vector that represents the visual characteristics of the image.
 
-For our Fruit Classification task we will be utilising a famous network known as **VGG16**.  This was designed back in 2014, but even by todays standards is a fairly heft network.  It was trained on the famous *ImageNet* dataset, with over a million images across one thousand different image classes. Everything from goldfish to cauliflowers to bottles of wine, to scuba divers!
-
-<br>
-![alt text](/img/posts/vgg16-architecture.png "VGG16 Architecture")
-
-<br>
-The VGG16 network won the 2014 ImageNet competition, meaning that it predicted more accurately than any other model on that set of images (although this has now been surpassed).
-
-If we can get our hands on the fully trained VGG16 model object, built to differentiate between all of those one thousand different image classes, the features that are contained in the layer prior to flattening will be very rich, and could be very useful for predicting all sorts of other images too without having to (a) re-train this entire architecture, which would be computationally, very expensive or (b) having to come up with our very own complex architecture, which we know can take a lot of trial and error to get right!
-
-All the hard work has been done, we just want to "transfer" those "learnings" to our own problem space.
-
-<br>
-#### Nuanced Application
-
-When using Transfer Learning for image classification tasks, we often import the architecture up to final Max Pooling layer, prior to flattening & the Dense Layers & Output Layer.  We use the frozen parameter values from the bottom of the network, and then get instead of the final Max Pooling layer
-
-With this approach, the final MaxPooling layer will be in the form of a number of pooled feature maps.  For our task here however, we don't want that. We instead want a *single set* of numbers to represent these features and thus we add in a **Global Average Pooling Layer** at the end of the VGG16 architecture meaning the output of the network will be a single array of numeric information rather than many arrays.
-
-___
-<br>
-
-# Setting Up VGG16  <a name="vgg16-setup"></a>
-
-Keras makes the use of VGG16 very easy. We download the bottom of the VGG16 network (everything up to the Dense Layers) and then add a parameter to ensure that the final layer is not a Max Pooling Layer but instead a *Global Max Pooling Layer*
-
-In the code below, we:
-
-* Import the required packaages
-* Set up the image parameters required for VGG16
-* Load in VGG16 with Global Average Pooling
-* Save the network architecture & weights for use in search engine
-
-<br>
-```python
-
-# import the required python libraries
-from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-import numpy as np
-from os import listdir
-from sklearn.neighbors import NearestNeighbors
-import matplotlib.pyplot as plt
-import pickle
-
-# VGG16 image parameters
-img_width = 224
-img_height = 224
-num_channels = 3
-
-# load in & structure VGG16 network architecture (global pooling)
-vgg = VGG16(input_shape = (img_width, img_height, num_channels), include_top = False, pooling = 'avg')
-model = Model(inputs = vgg.input, outputs = vgg.layers[-1].output)
-
-# save model file
-model.save('models/vgg16_search_engine.h5')
-
-```
-<br>
-The architecture can be seen below:
-<br>
-```
-
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-input_2 (InputLayer)         [(None, 224, 224, 3)]     0         
-_________________________________________________________________
-block1_conv1 (Conv2D)        (None, 224, 224, 64)      1792      
-_________________________________________________________________
-block1_conv2 (Conv2D)        (None, 224, 224, 64)      36928     
-_________________________________________________________________
-block1_pool (MaxPooling2D)   (None, 112, 112, 64)      0         
-_________________________________________________________________
-block2_conv1 (Conv2D)        (None, 112, 112, 128)     73856     
-_________________________________________________________________
-block2_conv2 (Conv2D)        (None, 112, 112, 128)     147584    
-_________________________________________________________________
-block2_pool (MaxPooling2D)   (None, 56, 56, 128)       0         
-_________________________________________________________________
-block3_conv1 (Conv2D)        (None, 56, 56, 256)       295168    
-_________________________________________________________________
-block3_conv2 (Conv2D)        (None, 56, 56, 256)       590080    
-_________________________________________________________________
-block3_conv3 (Conv2D)        (None, 56, 56, 256)       590080    
-_________________________________________________________________
-block3_pool (MaxPooling2D)   (None, 28, 28, 256)       0         
-_________________________________________________________________
-block4_conv1 (Conv2D)        (None, 28, 28, 512)       1180160   
-_________________________________________________________________
-block4_conv2 (Conv2D)        (None, 28, 28, 512)       2359808   
-_________________________________________________________________
-block4_conv3 (Conv2D)        (None, 28, 28, 512)       2359808   
-_________________________________________________________________
-block4_pool (MaxPooling2D)   (None, 14, 14, 512)       0         
-_________________________________________________________________
-block5_conv1 (Conv2D)        (None, 14, 14, 512)       2359808   
-_________________________________________________________________
-block5_conv2 (Conv2D)        (None, 14, 14, 512)       2359808   
-_________________________________________________________________
-block5_conv3 (Conv2D)        (None, 14, 14, 512)       2359808   
-_________________________________________________________________
-block5_pool (MaxPooling2D)   (None, 7, 7, 512)         0         
-_________________________________________________________________
-global_average_pooling2d (Gl (None, 512)               0         
-=================================================================
-Total params: 14,714,688
-Trainable params: 14,714,688
-Non-trainable params: 0
-_________________________________________________________________
-
-```
-<br>
-If we hadn't added that last parameter of "pooling = avg" then the final layer would have been that MaxPoolingLayer of shape 7 by 7 by 512. Instead however, the Global Average Pooling logic was added, and this means we get that single array that is of size 512.  In other words, all of the feature maps from that final Max Pooling layer are summarised down into one vector of 512 numbers, and for each image these numbers will represent it's features. This feature vector is what we will be using to compare our base set of images, to any given search image to assess the similarity!
-
-___
-<br>
-# Image Preprocessing & Featurisation <a name="image-preprocessing"></a>
-
-<br>
-#### Helper Functions
-
-Here we create two useful functions, one for pre-processing images prior to entering the network, and the second for featurising the image, in other words passing the image through the VGG16 network and receiving the output, a single vector of 512 numeric values.
+I generated embeddings for all product images in the dataset and stored them for later use during search queries.
 
 ```python
-
 # image pre-processing function
 def preprocess_image(filepath):
-    
-    image = load_img(filepath, target_size = (img_width, img_height))
+    image = load_img(filepath, target_size=(img_width, img_height))
     image = img_to_array(image)
-    image = np.expand_dims(image, axis = 0)
+    image = np.expand_dims(image, axis=0)
     image = preprocess_input(image)
-    
     return image
 
 # image featurisation function
 def featurise_image(image):
-    
     feature_vector = model.predict(image)
-    
     return feature_vector
-
-```
-<br>
-The *preprocess_image* function does the following:
-
-* Receives the filepath of an image
-* Loads the image in
-* Turns the image into an array
-* Adds in the "batch" dimension for the array that Keras is expecting
-* Applies the custom pre-processing logic for VGG16 that we imported from Keras
-* Returns the image as an array
-
-The *featurise_image* function does the following:
-
-* Receives the image as an array
-* Passes the array through the VGG16 architecture
-* Returns the feature vector
-
-<br>
-#### Setup
-
-In the code below, we:
-
-* Specify the directory of the base-set of images
-* Set up empty list to append our image filenames (for future lookup)
-* Set up empty array to append our base-set feature vectors
-
-```python
-
-# source directory for base images
-source_dir = 'data/'
-
-# empty objects to append to
-filename_store = []
-feature_vector_store = np.empty((0,512))
-
 ```
 
-<br>
-#### Preprocess & Featurise Base-Set Images
+---
 
-We now want to preprocess & feature all 300 images in our base-set.  To do this we execute a loop and apply the two functions we created earlier.  For each image, we append the filename, and the feature vector to stores.  We then save these stores, for future use when a search is executed.
+## Vector Similarity Search
 
-```python
+Once embeddings were generated, I implemented a vector similarity search pipeline.
 
-# pass in & featurise base image set
-for image in listdir(source_dir):
-    
-    print(image)
-    
-    # append image filename for future lookup
-    filename_store.append(source_dir + image)
-    
-    # preprocess the image
-    preprocessed_image = preprocess_image(source_dir + image)
-    
-    # extract the feature vector
-    feature_vector = featurise_image(preprocessed_image)
-    
-    # append feature vector for similarity calculations
-    feature_vector_store = np.append(feature_vector_store, feature_vector, axis = 0)
+When a user uploads a query image:
 
-# save key objects for future use
-pickle.dump(filename_store, open('models/filename_store.p', 'wb'))
-pickle.dump(feature_vector_store, open('models/feature_vector_store.p', 'wb'))
+1. The system preprocesses the image.
+2. The image is converted into a feature embedding using the same deep learning model.
+3. The embedding is compared against all catalog embeddings.
 
-```
+To measure similarity, I used cosine similarity, which calculates the angular distance between vectors in high-dimensional space. Images with smaller cosine distances are considered more visually similar.
 
-___
-<br>
-# Execute Search <a name="execute-search"></a>
+To efficiently retrieve the closest matches, I used a nearest neighbor search algorithm to return the top-K most similar products.
 
-With the base-set featurised, we can now run a search on a new image from a customer!
+---
 
-<br>
-#### Setup
+## Results and Evaluation
 
-In the code below, we:
-
-* Load in our VGG16 model
-* Load in our filename store & feature vector store
-* Specify the search image file
-* Specify the number of search results we want
-
-```python
-
-# load in required objects
-model = load_model('models/vgg16_search_engine.h5', compile = False)
-filename_store = pickle.load(open('models/filename_store.p', 'rb'))
-feature_vector_store = pickle.load(open('models/feature_vector_store.p', 'rb'))
-
-# search parameters
-search_results_n = 8
-search_image = 'search_image_02.jpg'
-
-```
-<br>
-The search image we are going to use for illustration here is below:
-
-<br>
-![alt text](/img/posts/search-engine-search1.jpg "VGG16 Architecture")
-
-<br>
-#### Preprocess & Featurise Search Image
-
-Using the same helper functions, we apply the preprocessing & featurising logic to the search image - the output again being a vector containing 512 numeric values.
-
-```python
-
-# preprocess & featurise search image
-preprocessed_image = preprocess_image(search_image)
-search_feature_vector = featurise_image(preprocessed_image)
-
-```
-
-<br>
-#### Locate Most Similar Images Using Cosine Similarity
-
-At this point, we have our search image existing as a 512 length feature vector, and we need to compare that feature vector to the feature vectors of all our base images.
-
-When that is done, we need to understand which of those base image feature vectors are most like the feature vector of our search image, and more specifically, we need to return the eight most closely matched, as that is what we specified above.
-
-To do this, we use the *NearestNeighbors* class from *scikit-learn* and we will apply the *Cosine Distance* metric to calculate the angle of difference between the feature vectors.
-
-**Cosine Distance** essentially measures the angle between any two vectors, and it looks to see whether the two vectors are pointing in a similar direction or not.  The more similar the direction the vectors are pointing, the smaller the angle between them in space and the more different the direction the LARGER the angle between them in space. This angle gives us our cosine distance score.
-
-By calculating this score between our search image vector and each of our base image vectors, we can be returned the images with the eight lowest cosine scores - and these will be our eight most similar images, at least in terms of the feature vector representation that comes from our VGG16 network!
-
-In the code below, we:
-
-* Instantiate the Nearest Neighbours logic and specify our metric as Cosine Similarity
-* Apply this to our *feature_vector_store* object (that contains a 512 length feature vector for each of our 300 base-set images)
-* Pass in our *search_feature_vector* object into the fitted Nearest Neighbors object.  This will find the eight nearest base feature vectors, and for each it will return (a) the cosine distance, and (b) the index of that feature vector from our *feature_vector_store* object.
-* Convert the outputs from arrays to lists (for ease when plotting the results)
-* Create a list of filenames for the eight most similar base-set images
-
-```python
-
-# instantiate nearest neighbours logic
-image_neighbours = NearestNeighbors(n_neighbors = search_results_n, metric = 'cosine')
-
-# apply to our feature vector store
-image_neighbours.fit(feature_vector_store)
-
-# return search results for search image (distances & indices)
-image_distances, image_indices = image_neighbours.kneighbors(search_feature_vector)
-
-# convert closest image indices & distances to lists
-image_indices = list(image_indices[0])
-image_distances = list(image_distances[0])
-
-# get list of filenames for search results
-search_result_files = [filename_store[i] for i in image_indices]
-
-```
-
-<br>
-#### Plot Search Results
-
-We now have all of the information about the eight most similar images to our search image - let's see how well it worked by plotting those images!
-
-We plot them in order from most similar to least similar, and include the cosine distance score for reference (smaller is closer, or more similar)
-
-```python
-
-# plot search results
-plt.figure(figsize=(20,15))
-for counter, result_file in enumerate(search_result_files):    
-    image = load_img(result_file)
-    ax = plt.subplot(3, 3, counter+1)
-    plt.imshow(image)
-    plt.text(0, -5, round(image_distances[counter],3), fontsize=28)
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-plt.show()
-
-```
-<br>
-The search image, and search results are below:
+I tested the system using multiple query images from the footwear dataset.
 
 **Search Image**
-<br>
-![alt text](/img/posts/search-engine-search1.jpg "Search 1: Search Image")
-<br>
-<br>
+
+![Search 1](/img/posts/search-engine-search1.jpg "Search Image 1")
+
 **Search Results**
-![alt text](/img/posts/search-engine-search1-results.png "Search 1: Search Results")
 
-<br>
-Very impressive results!  From the 300 base-set images, these are the eight that have been deemed to be *most similar*!
-
-<br>
-Let's take a look at a second search image...
+![Search Results 1](/img/posts/search-engine-search1-results.png "Search Results 1")
 
 **Search Image**
-<br>
-![alt text](/img/posts/search-engine-search2.jpg "Search 2: Search Image")
-<br>
-<br>
+
+![Search 2](/img/posts/search-engine-search2.jpg "Search Image 2")
+
 **Search Results**
-![alt text](/img/posts/search-engine-search2-results.png "Search 2: Search Results")
 
-<br>
-Again, these have come out really well - the features from VGG16 combined with Cosine Similarity have done a great job!
+![Search Results 2](/img/posts/search-engine-search2-results.png "Search Results 2")
 
-___
-<br>
-# Discussion, Growth & Next Steps <a name="growth-next-steps"></a>
+In each case, the system successfully retrieved products that were visually similar to the query image in terms of shape, color patterns, design features, and product structure.
 
-The way we have coded this up is very much for the "proof of concept".  In practice we would definitely have the last section of the code (where we submit a search) isolated, and running from all of the saved objects that we need - we wouldn't include it in a single script like we have here.
+Even when background conditions or lighting varied between images, the model was able to capture the underlying visual characteristics of the products.
 
-Also, rather than having to fit the Nearest Neighbours to our *feature_vector_store* each time a search is submitted, we could store that object as well.
+These results demonstrate that deep learning embeddings can effectively power visual search functionality in product catalogs.
 
-When applying this in production, we also may want to code up a script that easily adds or removes images from the feature store.  The products that are available in the clients store would be changing all the time, so we'd want a nice easy way to add new feature vectors to the feature_vector_store object - and also potentially a way to remove search results coming back if that product was out of stock, or no longer part of the suite of products that were sold.
+---
 
-Most likely, in production, this would just return a list of filepaths that the client's website could then pull forward as required - the matplotlib code is just for us to see it in action manually!
+## Scaling Considerations and Future Improvements
 
-This was tested only in one category, we would want to test on a broader array of categories - most likely having a saved network for each to avoid irrelevant predictions.
+This implementation was designed as a proof-of-concept prototype, but several improvements would be required for production deployment.
 
-We only looked at Cosine Similarity here, it would be interesting to investigate other distance metrics.
+### Vector Databases
 
-It would be beneficial to come up with a way to quantify the quality of the search results.  This could come from customer feedback, or from click-through rates on the site.
+For large-scale systems with millions of images, embeddings should be stored in vector databases such as FAISS, Pinecone, Milvus, or Elasticsearch vector search. These systems enable sub-second similarity search across massive embedding indexes.
 
-Here we utilised VGG16. It would be worthwhile testing other available pre-trained networks such as ResNet, Inception, and the DenseNet networks.
+### Modern Vision Models
+
+Although VGG16 works well for this prototype, modern systems typically use Vision Transformer–based architectures such as CLIP, ViT, or DINOv2. These models produce higher-quality semantic embeddings and significantly improve retrieval accuracy.
+
+### Real-Time Catalog Updates
+
+A production system would require pipelines that generate embeddings for new product images, remove embeddings for out-of-stock products, and continuously update the vector index.
+
+### Microservice Architecture
+
+A scalable architecture for visual search could follow this pipeline:
+
+```
+Image Upload
+↓
+Feature Encoder (Deep Learning Model)
+↓
+Vector Database
+↓
+Similarity Search
+↓
+Product Ranking API
+```
+
+This architecture allows visual search to integrate seamlessly into modern e-commerce recommendation systems.
