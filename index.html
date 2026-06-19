@@ -2,66 +2,143 @@
 layout: home
 ---
 
-<!-- ═══════════════════════════════════════════════════════════
-     HERO / ABOUT (combined)
-     ═══════════════════════════════════════════════════════════ -->
-<section id="about" class="section section-hero" >
+<!-- INTRO -->
+<section id="about" class="section-hero">
   <div class="container">
 
-    <h1 class="hero-name fade-in">Alhassan Sahad.</h1>
-    <p class="hero-role fade-in">Data Scientist</p>
-
-    <div class="about-grid">
-
-      <div class="about-img-wrap fade-in">
-        <img src="{{ site.avatar_image }}" alt="Photo of {{ site.title }}">
+    <div class="intro-wrap">
+      <div class="intro-text">
+        <h1 class="intro-name">Alhassan Sahad.</h1>
+        <p class="intro-tagline">I like to train machine learning and deep learning models on large datasets 🧠</p>
+        <p class="intro-meta">
+          Seattle, WA &nbsp;·&nbsp;
+          <a href="mailto:alhassansahad24@gmail.com">alhassansahad24@gmail.com</a> &nbsp;·&nbsp;
+          <a href="https://github.com/asahad" target="_blank" rel="noopener">github.com/asahad</a>
+        </p>
       </div>
-
-      <div class="about-body">
-
-        <p class="fade-in">
-          I'm a Data Scientist based in <strong>Seattle, WA</strong> with a master's degree in Data Science.
-          I'm passionate about applying machine learning to solve
-          real problems, always with a focus on measurable business impact over
-          theoretical complexity.
-        </p>
-
-        <p class="fade-in fade-in-d1">
-          My work spans the full ML/DS lifecycle: exploratory analysis, feature engineering,
-          model training and evaluation, and communicating results clearly to non-technical
-          stakeholders. Each project I take on is grounded in a clear business question
-          with concrete, quantifiable outcomes.
-        </p>
-
-        <p class="fade-in fade-in-d2">
-          I've applied these skills across domains including semantic segmentation, customer
-          segmentation, causal inference, statistical testing, and deep learning-based
-          recommendation systems. I'm currently open to
-          <strong>Data Scientist</strong> and <strong>ML Engineer</strong> roles.
-        </p>
-
-        <div class="hero-cta fade-in fade-in-d2">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-        </div>
-
-      </div>
+      <img src="{{ site.avatar_image }}" alt="Alhassan Sahad" class="intro-photo">
     </div>
 
   </div>
 </section>
 
 
-<!-- ═══════════════════════════════════════════════════════════
-     PROJECTS
-     ═══════════════════════════════════════════════════════════ -->
-<section id="projects" class="section section-alt">
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+
+    <p class="section-label fade-in">Experience</p>
+
+    <div class="timeline">
+
+      <div class="timeline-entry fade-in">
+        <div class="timeline-date">2024<br>Now</div>
+        <div class="timeline-content">
+          <p class="timeline-org">Weyerhaeuser</p>
+          <p class="timeline-role">Data Scientist &nbsp;·&nbsp; Seattle, WA</p>
+          <p class="timeline-desc">
+            I pull and analyze data from SQL databases across 100M+ records to solve business problems
+            for stakeholder teams — identifying patterns that cut manual assessment by 70% and informed
+            $500M in strategic decisions. I build predictive models using deep learning and ensemble
+            methods in Python, and engineered a 10TB+ AWS data platform that reduced data preparation
+            time by 80% and cloud costs by $50K/yr. I also create Tableau dashboards for 5+
+            cross-functional teams and present findings in daily standups and sprint reviews.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-in">
+        <div class="timeline-date">2023<br>2024</div>
+        <div class="timeline-content">
+          <p class="timeline-org">NASA Marshall Space Flight Center</p>
+          <p class="timeline-role">Data Scientist &nbsp;·&nbsp; Huntsville, AL</p>
+          <p class="timeline-desc">
+            Analyzed terabyte-scale wildfire datasets to identify patterns and trends in wildfire
+            behavior, building TensorFlow classification models that achieved 85% accuracy.
+            Pulled and cleaned data across multiple sources using Python, SQL, and Spark.
+            Built prioritization models that improved resource allocation efficiency by 50% across
+            10+ teams, and presented findings to over 1,000 stakeholders.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-in">
+        <div class="timeline-date">2022<br>2023</div>
+        <div class="timeline-content">
+          <p class="timeline-org">Institute for Data Science and Informatics</p>
+          <p class="timeline-role">Data Scientist &nbsp;·&nbsp; Columbia, MO</p>
+          <p class="timeline-desc">
+            Analyzed multi-source environmental data using Python, R, and SQL, identifying trends
+            in groundwater contamination and building ML models that reached 97% accuracy.
+            Determined statistical significance of hydrological variables and delivered root cause
+            analysis to project stakeholders. Presented findings at the Missouri GIS Conference
+            to 50+ government stakeholders.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-in">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-content">
+          <p class="timeline-org">University of Missouri–Columbia</p>
+          <p class="timeline-role">M.S. in Data Science and Analytics</p>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-in">
+        <div class="timeline-date">2019</div>
+        <div class="timeline-content">
+          <p class="timeline-org">Kwame Nkrumah University of Science and Technology</p>
+          <p class="timeline-role">B.S. in Geological Engineering</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="section section-alt">
+  <div class="container">
+
+    <p class="section-label fade-in">Skills</p>
+
+    <div class="skills-inline fade-in">
+      <span class="skill-pill">SQL</span>
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">TensorFlow</span>
+      <span class="skill-pill">PyTorch</span>
+      <span class="skill-pill">scikit-learn</span>
+      <span class="skill-pill">XGBoost</span>
+      <span class="skill-pill">pandas</span>
+      <span class="skill-pill">NumPy</span>
+      <span class="skill-pill">R</span>
+      <span class="skill-pill">Spark</span>
+      <span class="skill-pill">Tableau</span>
+      <span class="skill-pill">Power BI</span>
+      <span class="skill-pill">AWS</span>
+      <span class="skill-pill">Git</span>
+      <span class="skill-pill">Agile / Scrum</span>
+    </div>
+
+    <p class="skills-certs fade-in">
+      Certifications: AWS Machine Learning &nbsp;·&nbsp; NLP & Deep Learning (DeepLearning.ai) &nbsp;·&nbsp; Computer Vision Nanodegree (Udacity)
+    </p>
+
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
   <div class="container">
 
     <p class="section-label fade-in">Projects</p>
     <h2 class="section-title fade-in">Featured Work</h2>
     <p class="section-sub fade-in">
-      End-to-end data science projects, each with a full technical write-up and
-      clear business context from problem framing to actionable results.
+      End-to-end data science projects with full technical write-ups.
     </p>
 
     <div class="projects-grid">
@@ -77,11 +154,9 @@ layout: home
         {% endif %}
 
         <div class="card-body">
-
           <h3 class="card-title">
             <a href="{{ post.url }}">{{ post.title }}</a>
           </h3>
-
           <p class="card-excerpt">
             {% if post.description %}
               {{ post.description | strip_html | truncate: 90 }}
@@ -89,12 +164,11 @@ layout: home
               {{ post.content | strip_html | truncate: 90 }}
             {% endif %}
           </p>
-
           <a href="{{ post.url }}" class="card-link">
             Read More <span aria-hidden="true">→</span>
           </a>
-
         </div>
+
       </article>
       {% endunless %}{% endfor %}
     </div>
@@ -103,19 +177,16 @@ layout: home
 </section>
 
 
-<!-- ═══════════════════════════════════════════════════════════
-     BLOG
-     ═══════════════════════════════════════════════════════════ -->
+<!-- BLOG -->
 {% assign blog_posts = site.posts | where: "type", "blog" %}
 {% if blog_posts.size > 0 %}
-<section id="blog" class="section">
+<section id="blog" class="section section-alt">
   <div class="container">
 
     <p class="section-label fade-in">Blog</p>
     <h2 class="section-title fade-in">Latest Writing</h2>
     <p class="section-sub fade-in">
-      In-depth articles on machine learning concepts, data science workflows,
-      and the ideas behind the work.
+      In-depth articles on machine learning concepts and data science workflows.
     </p>
 
     <div class="projects-grid">
@@ -154,10 +225,8 @@ layout: home
 {% endif %}
 
 
-<!-- ═══════════════════════════════════════════════════════════
-     CONTACT
-     ═══════════════════════════════════════════════════════════ -->
-<section id="contact" class="section section-alt">
+<!-- CONTACT -->
+<section id="contact" class="section">
   <div class="container">
 
     <div class="contact-box">
@@ -165,12 +234,12 @@ layout: home
       <h2 class="section-title fade-in">Let's Work Together</h2>
       <p class="contact-desc fade-in">
         I'm actively looking for <strong>Data Scientist</strong> and
-        <strong>ML Engineer</strong> opportunities — if you have a role, a project,
-        or just want to connect, my inbox is always open.
+        <strong>ML Engineer</strong> roles. U.S. Permanent Resident —
+        no sponsorship needed.
       </p>
       <div class="contact-links fade-in">
-        <a href="{{ site.resume_url }}" class="btn btn-primary" target="_blank" rel="noopener">
-          Download Resume here
+        <a href="mailto:alhassansahad24@gmail.com" class="btn btn-primary">
+          Get in Touch
         </a>
         <a href="https://github.com/asahad" class="btn btn-outline" target="_blank" rel="noopener">
           GitHub ↗

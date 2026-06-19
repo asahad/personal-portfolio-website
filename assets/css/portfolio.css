@@ -251,45 +251,171 @@ ul, ol {
 }
 
 
-/* ── Hero / Combined Hero+About ──────────────────────────────── */
+/* ── Hero / Intro ────────────────────────────────────────────── */
 .section-hero {
   padding-top: calc(var(--nav-h) + 80px);
+  padding-bottom: 80px;
 }
 
-.section-hero .hero-greeting {
-  font-size: 0.9rem;
+.intro-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-name {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.15s;
+}
+
+.intro-tagline {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  max-width: 540px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.3s;
+}
+
+.intro-meta {
+  font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.45s;
+}
+
+.intro-meta a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.intro-meta a:hover {
+  color: var(--text-h);
+}
+
+.intro-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
   opacity: 0;
   animation: fadeUp 0.6s ease forwards 0.2s;
 }
 
-.section-hero .hero-name {
-  font-size: clamp(2.8rem, 7vw, 5rem);
-  font-weight: 800;
+
+/* ── Timeline ────────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  margin-top: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0 32px;
+  padding-bottom: 44px;
+  position: relative;
+}
+
+.timeline-entry:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+  padding-top: 4px;
+  line-height: 1.5;
+}
+
+.timeline-content {
+  padding-left: 28px;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  border: 2px solid var(--bg);
+}
+
+.timeline-org {
+  font-size: 0.98rem;
+  font-weight: 700;
   color: var(--text-h);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 10px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.38s;
+  margin-bottom: 2px;
 }
 
-.section-hero .hero-role {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 400;
+.timeline-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
   color: var(--text);
-  margin-bottom: 0;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.54s;
+  line-height: 1.8;
 }
 
-.hero-cta {
+
+/* ── Skills Pills ────────────────────────────────────────────── */
+.skills-inline {
   display: flex;
-  gap: 14px;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.86s;
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.skill-pill {
+  font-size: 0.82rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 14px;
+}
+
+.skills-certs {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.7;
 }
 
 
@@ -692,14 +818,38 @@ ul, ol {
     display: flex;
   }
 
-  /* About: stack vertically */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  /* Intro: stack on mobile */
+  .intro-wrap {
+    flex-direction: column-reverse;
+    gap: 20px;
   }
 
-  .about-img-wrap {
-    max-width: 180px;
+  .intro-photo {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Timeline: collapse date column */
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-entry {
+    grid-template-columns: 1fr;
+    padding-left: 20px;
+  }
+
+  .timeline-date {
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+  }
+
+  .timeline-content::before {
+    left: -24px;
   }
 
   /* Skills: 1 column */
