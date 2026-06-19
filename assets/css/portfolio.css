@@ -309,85 +309,126 @@ ul, ol {
 }
 
 .intro-photo {
-  width: 96px;
-  height: 96px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
+  overflow: hidden;
   border: 1px solid var(--border);
   flex-shrink: 0;
+  display: block;
   opacity: 0;
   animation: fadeUp 0.6s ease forwards 0.2s;
 }
 
 
-/* ── Timeline ────────────────────────────────────────────────── */
-.timeline {
-  position: relative;
+/* ── Timeline (Karpathy-style) ───────────────────────────────── */
+/*
+  Grid per row: [90px date] [20px gap] [60px badge] [20px gap] [1fr text]
+  Stem x (the vertical line/dot x) = middle of gap = 90 + 10 = 100px from row left.
+  Relative to badge left (110px): stem x = 100 - 110 = -10px.
+  Dot (8px wide) centered at -10px: left = -10 - 4 = -14px.
+  Line (1px) centered at -10px: left ≈ -10px.
+*/
+
+.cv-timeline {
   margin-top: 32px;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 72px;
-  top: 8px;
-  bottom: 0;
-  width: 1px;
-  background: var(--border);
-}
-
-.timeline-entry {
+.cv-row {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 0 32px;
+  grid-template-columns: 90px 60px 1fr;
+  gap: 0 20px;
   padding-bottom: 44px;
-  position: relative;
+  align-items: start;
 }
 
-.timeline-entry:last-child {
+.cv-row:last-child {
   padding-bottom: 0;
 }
 
-.timeline-date {
-  font-size: 0.72rem;
+.cv-date {
+  font-size: 0.7rem;
   color: var(--text-muted);
   text-align: right;
-  padding-top: 4px;
+  padding-top: 20px;
   line-height: 1.5;
+  white-space: nowrap;
 }
 
-.timeline-content {
-  padding-left: 28px;
+.cv-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
   position: relative;
+  z-index: 1;
 }
 
-.timeline-content::before {
+/* Dot on the vertical line */
+.cv-badge::before {
   content: '';
   position: absolute;
-  left: -4px;
-  top: 7px;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--text-muted);
   border: 2px solid var(--bg);
+  z-index: 2;
 }
 
-.timeline-org {
-  font-size: 0.98rem;
+/* Vertical connecting line (drawn downward from each badge center to the next) */
+.cv-badge::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  height: calc(100% + 44px);
+  width: 1px;
+  background: #D1D5DB;
+  z-index: 0;
+}
+
+.cv-row:last-child .cv-badge::after {
+  display: none;
+}
+
+/* Company badge colors */
+.logo-wey   { background: #2D5F2E; }
+.logo-nasa  { background: #0B3D91; font-size: 0.65rem; letter-spacing: 0.04em; }
+.logo-idsi  { background: #4A3728; font-size: 0.85rem; }
+.logo-umiz  { background: #F1B82D; color: #1C1C1C; font-size: 0.85rem; }
+.logo-knust { background: #006B3F; font-size: 0.85rem; }
+
+.cv-body {
+  padding-top: 4px;
+}
+
+.cv-org {
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-h);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  line-height: 1.4;
 }
 
-.timeline-role {
+.cv-role {
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.timeline-desc {
-  font-size: 0.9rem;
+.cv-desc {
+  font-size: 0.88rem;
   color: var(--text);
   line-height: 1.8;
 }
@@ -829,28 +870,29 @@ ul, ol {
     height: 72px;
   }
 
-  /* Timeline: collapse date column */
-  .timeline::before {
-    left: 0;
+  /* CV timeline: compact on mobile */
+  .cv-row {
+    grid-template-columns: 56px 48px 1fr;
+    gap: 0 12px;
+    padding-bottom: 36px;
   }
 
-  .timeline-entry {
-    grid-template-columns: 1fr;
-    padding-left: 20px;
+  .cv-date {
+    font-size: 0.65rem;
+    padding-top: 14px;
   }
 
-  .timeline-date {
-    text-align: left;
-    margin-bottom: 4px;
+  .cv-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 0.8rem;
   }
 
-  .timeline-content {
-    padding-left: 0;
-  }
-
-  .timeline-content::before {
-    left: -24px;
-  }
+  /* Recalculate stem for mobile grid:
+     date=56 + gap=12 → badge left=68px, stem x = 56+6=62, rel to badge = 62-68 = -6px */
+  .cv-badge::before { left: -10px; }
+  .cv-badge::after  { left: -6px; height: calc(100% + 36px); }
 
   /* Skills: 1 column */
   .skills-grid {
