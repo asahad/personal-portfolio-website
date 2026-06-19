@@ -309,8 +309,8 @@ ul, ol {
 }
 
 .intro-photo {
-  width: 72px;
-  height: 72px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   overflow: hidden;
@@ -337,7 +337,7 @@ ul, ol {
 
 .cv-row {
   display: grid;
-  grid-template-columns: 90px 60px 1fr;
+  grid-template-columns: 90px 64px 1fr;
   gap: 0 20px;
   padding-bottom: 44px;
   align-items: start;
@@ -357,18 +357,26 @@ ul, ol {
 }
 
 .cv-badge {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
-  color: #ffffff;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 6px;
+  overflow: hidden;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 /* Dot on the vertical line */
@@ -402,12 +410,6 @@ ul, ol {
   display: none;
 }
 
-/* Company badge colors */
-.logo-wey   { background: #2D5F2E; }
-.logo-nasa  { background: #0B3D91; font-size: 0.65rem; letter-spacing: 0.04em; }
-.logo-idsi  { background: #4A3728; font-size: 0.85rem; }
-.logo-umiz  { background: #F1B82D; color: #1C1C1C; font-size: 0.85rem; }
-.logo-knust { background: #006B3F; font-size: 0.85rem; }
 
 .cv-body {
   padding-top: 4px;
@@ -872,7 +874,7 @@ ul, ol {
 
   /* CV timeline: compact on mobile */
   .cv-row {
-    grid-template-columns: 56px 48px 1fr;
+    grid-template-columns: 52px 52px 1fr;
     gap: 0 12px;
     padding-bottom: 36px;
   }
@@ -883,14 +885,13 @@ ul, ol {
   }
 
   .cv-badge {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 8px;
-    font-size: 0.8rem;
+    padding: 4px;
   }
 
-  /* Recalculate stem for mobile grid:
-     date=56 + gap=12 → badge left=68px, stem x = 56+6=62, rel to badge = 62-68 = -6px */
+  /* Recalculate stem: date=52 + gap=12 → badge left=64px, stem x = 52+6=58, rel to badge = 58-64 = -6px */
   .cv-badge::before { left: -10px; }
   .cv-badge::after  { left: -6px; height: calc(100% + 36px); }
 
